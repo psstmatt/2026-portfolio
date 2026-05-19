@@ -8,8 +8,8 @@ The site is intentionally tiny: no framework, no build step, no package manager,
 
 ```text
 index.html      visible page content and hidden PDF panel
-style.css       plain page rules, link hover accents, and selection colors
-script.js       Konami key rail, PDF panel behavior, and per-word selection setup
+style.css       plain page rules, link hover accents, and selection color
+script.js       Konami key rail and PDF panel behavior
 favicon.svg     site favicon
 portfolio.pdf   portfolio PDF
 ```
@@ -25,7 +25,7 @@ python3 -m http.server 8000
 ## Interactions
 
 Links stay plain until hover or keyboard focus, then get a restrained animated rainbow underline.
-Selected homepage text uses soft per-word color highlights.
+Selected homepage text uses quiet grouped rainbow highlights.
 
 ## Easter Egg
 

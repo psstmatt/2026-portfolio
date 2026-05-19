@@ -1,9 +1,9 @@
 body {
-  line-height: 1.4;
   font-size: 16px;
-  padding: 0 10px;
+  line-height: 1.4;
   margin: 50px auto;
   max-width: 650px;
+  padding: 0 10px;
 }
 
 a {
@@ -39,44 +39,73 @@ a:focus-visible {
 }
 
 ::selection {
-  background-color: rgba(0, 122, 255, 0.14);
-  color: inherit;
+  background-color: #d9f2ee;
+  color: #000;
   text-shadow: none;
 }
 
-#maincontent
-{
-max-width:42em;margin:15 auto;
-
+#maincontent {
+  margin: 70px auto 50px;
+  max-width: 42em;
 }
 
-.selectable-word::selection {
-  color: inherit;
-  text-shadow: none;
+.site-header::selection,
+.site-header *::selection {
+  background-color: #eadcff;
 }
 
-.selection-tone-0::selection {
-  background-color: rgba(175, 82, 222, 0.18);
+#about-title::selection,
+#about-title + ul li:nth-child(1)::selection {
+  background-color: #d8f5ef;
 }
 
-.selection-tone-1::selection {
-  background-color: rgba(0, 199, 190, 0.2);
+#about-title + ul li:nth-child(2)::selection {
+  background-color: #e2efff;
 }
 
-.selection-tone-2::selection {
-  background-color: rgba(0, 122, 255, 0.18);
+#about-title + ul li:nth-child(3)::selection {
+  background-color: #ffe5ec;
 }
 
-.selection-tone-3::selection {
-  background-color: rgba(255, 45, 85, 0.16);
+#beliefs-title::selection {
+  background-color: #fff0c8;
 }
 
-.selection-tone-4::selection {
-  background-color: rgba(52, 199, 89, 0.18);
+#beliefs-title + ul > li:nth-child(1)::selection,
+#beliefs-title + ul > li:nth-child(1) *::selection {
+  background-color: #ddecff;
 }
 
-.selection-tone-5::selection {
-  background-color: rgba(255, 149, 0, 0.16);
+#beliefs-title + ul > li:nth-child(2)::selection,
+#beliefs-title + ul > li:nth-child(2) *::selection {
+  background-color: #ddf5e2;
+}
+
+#beliefs-title + ul > li:nth-child(3)::selection,
+#beliefs-title + ul > li:nth-child(3) *::selection {
+  background-color: #ffe3d4;
+}
+
+.site-header {
+  margin-bottom: 1.5em;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25em;
+}
+
+h1 {
+  font-size: 1.5em;
+  line-height: 1.15;
+  margin: 0 0 1em;
+}
+
+h2 {
+  font-size: 1em;
+  font-weight: normal;
+  margin: 1.5em 0 0.5em;
 }
 
 .konami-keys {

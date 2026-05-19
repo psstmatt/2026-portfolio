@@ -16,13 +16,11 @@ const sequence = [
 const overlay = document.getElementById('konami-overlay');
 const closeButton = document.getElementById('konami-close');
 const keyRail = document.getElementById('konami-keys');
-const mainContent = document.getElementById('maincontent');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 let index = 0;
 let missTimer = 0;
 let hideTimer = 0;
-let selectionTone = 0;
 
 function normalizeKey(event) {
   if (event.key.length === 1) {
@@ -120,52 +118,6 @@ function closeOverlay() {
   hideRailSoon();
 }
 
-function wordWrapperFilter(node) {
-  if (!node.nodeValue.trim()) {
-    return NodeFilter.FILTER_REJECT;
-  }
-
-  if (!node.parentElement || node.parentElement.closest('.selectable-word')) {
-    return NodeFilter.FILTER_REJECT;
-  }
-
-  return NodeFilter.FILTER_ACCEPT;
-}
-
-function wrapSelectableWords(root) {
-  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-    acceptNode: wordWrapperFilter
-  });
-  const textNodes = [];
-  let textNode = walker.nextNode();
-
-  while (textNode) {
-    textNodes.push(textNode);
-    textNode = walker.nextNode();
-  }
-
-  textNodes.forEach(function (node) {
-    const fragment = document.createDocumentFragment();
-    const parts = node.nodeValue.match(/\s+|\S+/g) || [];
-
-    parts.forEach(function (part) {
-      if (/^\s+$/.test(part)) {
-        fragment.appendChild(document.createTextNode(part));
-        return;
-      }
-
-      const word = document.createElement('span');
-
-      word.className = 'selectable-word selection-tone-' + selectionTone;
-      word.textContent = part;
-      selectionTone = (selectionTone + 1) % 6;
-      fragment.appendChild(word);
-    });
-
-    node.replaceWith(fragment);
-  });
-}
-
 document.addEventListener('keydown', function (event) {
   if (!overlay.hidden && event.key === 'Escape') {
     closeOverlay();
@@ -205,6 +157,5 @@ document.addEventListener('keydown', function (event) {
   }
 });
 
-wrapSelectableWords(mainContent);
 closeButton.addEventListener('click', closeOverlay);
 renderKeys();
