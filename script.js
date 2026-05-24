@@ -3,391 +3,217 @@ const projects = [
     id: "boeing-social-web",
     title: "Social web",
     company: "Boeing",
-    companyGroup: "Social web",
-    companyChapter: "Boeing",
     companyLogo: "assets/favicons/boeing.ico",
-    logoSource: "https://www.boeing.com/favicon.ico",
-    role: "Commercial IT, Space & Defense",
     year: "June 2010-January 2016",
-    platform: "Enterprise web",
-    oneLiner: "A social product surface for teams navigating Boeing-scale knowledge and collaboration.",
-    impact: "A social product surface for teams navigating Boeing-scale knowledge and collaboration.",
-    summary: "Public-safe Boeing chapter focused on social web patterns for large enterprise teams, with the sensitive product detail intentionally abstracted.",
-    tags: ["Enterprise web", "Social systems", "Knowledge sharing"],
     deviceType: "laptop",
-    previewAsset: "boeing-social",
+    previewAsset: "social",
     accent: "#1f65b7",
-    threadColor: "#1f65b7",
-    deviceTilt: -4,
     deviceScale: 0.94,
-    railOffset: -18,
     confidential: false
   },
   {
     id: "boeing-search-web",
     title: "Search web",
     company: "Boeing",
-    companyGroup: "Search web",
-    companyChapter: "Boeing",
     companyLogo: "assets/favicons/boeing.ico",
-    logoSource: "https://www.boeing.com/favicon.ico",
-    role: "Commercial IT, Space & Defense",
     year: "June 2010-January 2016",
-    platform: "Enterprise search",
-    oneLiner: "Search patterns that made large enterprise knowledge easier to find and act on.",
-    impact: "Search patterns that made large enterprise knowledge easier to find and act on.",
-    summary: "Search and discovery work for complex internal information spaces, framed here as a public, abstract product node.",
-    tags: ["Search", "Enterprise UX", "Information architecture"],
     deviceType: "laptop",
-    previewAsset: "boeing-search",
+    previewAsset: "search",
     accent: "#235b98",
-    threadColor: "#235b98",
-    deviceTilt: 3,
-    deviceScale: 0.9,
-    railOffset: 20,
+    deviceScale: 0.92,
     confidential: false
   },
   {
     id: "boeing-skywalker-app",
     title: "Skywalker app",
     company: "Boeing",
-    companyGroup: "Skywalker",
-    companyChapter: "Boeing",
     companyLogo: "assets/favicons/boeing.ico",
-    logoSource: "https://www.boeing.com/favicon.ico",
-    role: "Commercial IT, Space & Defense",
     year: "June 2010-January 2016",
-    platform: "Internal app",
-    oneLiner: "An app surface for complex aerospace work, kept abstract and portfolio-safe.",
-    impact: "An app surface for complex aerospace work, kept abstract and portfolio-safe.",
-    summary: "A named internal app project represented as an abstract device preview so the rail can show range without exposing sensitive details.",
-    tags: ["Internal app", "Aerospace", "Systems design"],
     deviceType: "phone",
-    previewAsset: "boeing-skywalker",
+    previewAsset: "skywalker",
     accent: "#2a70c8",
-    threadColor: "#2a70c8",
-    deviceTilt: -7,
-    deviceScale: 0.92,
-    railOffset: -6,
+    deviceScale: 0.94,
     confidential: false
   },
   {
     id: "expedia-list-making",
     title: "List making web + app",
     company: "Expedia Group",
-    companyGroup: "Lists",
-    companyChapter: "Expedia",
     companyLogo: "assets/favicons/expedia.ico",
-    logoSource: "https://www.expedia.com/favicon.ico",
-    role: "Engagement growth",
     year: "January 2016-July 2017",
-    platform: "Web, iOS, Android",
-    oneLiner: "Saved-place and trip-list patterns that helped travelers gather options before deciding.",
-    impact: "Saved-place and trip-list patterns that helped travelers gather options before deciding.",
-    summary: "Travel planning work centered on collecting, comparing, and returning to options across web and app surfaces.",
-    tags: ["Travel", "Lists", "Engagement", "Mobile"],
     deviceType: "phone",
-    previewAsset: "expedia-lists",
-    accent: "#f2b705",
-    threadColor: "#f2b705",
-    deviceTilt: 6,
+    previewAsset: "lists",
+    accent: "#b87800",
     deviceScale: 0.98,
-    railOffset: 28,
     confidential: false
   },
   {
     id: "expedia-city-mobile-web",
     title: "City accelerated mobile web",
     company: "Expedia Group",
-    companyGroup: "City web",
-    companyChapter: "Expedia",
     companyLogo: "assets/favicons/expedia.ico",
-    logoSource: "https://www.expedia.com/favicon.ico",
-    role: "Engagement growth",
     year: "January 2016-July 2017",
-    platform: "Accelerated mobile web",
-    oneLiner: "A faster city discovery experience for travelers already on the move.",
-    impact: "A faster city discovery experience for travelers already on the move.",
-    summary: "Mobile web project work focused on speed, lightweight browsing, and city-level travel discovery.",
-    tags: ["Mobile web", "Travel discovery", "Performance"],
     deviceType: "phone",
-    previewAsset: "expedia-city",
-    accent: "#e7a80a",
-    threadColor: "#e7a80a",
-    deviceTilt: -3,
+    previewAsset: "city",
+    accent: "#9f6a00",
     deviceScale: 0.94,
-    railOffset: -22,
     confidential: false
   },
   {
     id: "expedia-voice-skills",
     title: "Google Home & Amazon Alexa voice skills",
     company: "Expedia Group",
-    companyGroup: "Voice",
-    companyChapter: "Expedia",
     companyLogo: "assets/favicons/expedia.ico",
-    logoSource: "https://www.expedia.com/favicon.ico",
-    role: "Engagement growth",
     year: "January 2016-July 2017",
-    platform: "Voice assistants",
-    oneLiner: "Voice-first travel interactions for Google Home and Amazon Alexa.",
-    impact: "Voice-first travel interactions for Google Home and Amazon Alexa.",
-    summary: "Early voice interaction work translating travel intent into conversational flows for home assistants.",
-    tags: ["Voice UX", "Google Home", "Amazon Alexa", "Travel"],
     deviceType: "phone",
-    previewAsset: "expedia-voice",
-    accent: "#c98d05",
-    threadColor: "#c98d05",
-    deviceTilt: 8,
-    deviceScale: 0.88,
-    railOffset: 12,
+    previewAsset: "voice",
+    accent: "#8e6000",
+    deviceScale: 0.9,
     confidential: false
   },
   {
     id: "uber-driver-marketplace",
     title: "Driver marketplace web",
     company: "Uber",
-    companyGroup: "Marketplace",
-    companyChapter: "Uber",
     companyLogo: "assets/favicons/uber.ico",
-    logoSource: "https://www.uber.com/favicon.ico",
-    role: "New verticals",
     year: "August 2017-July 2022",
-    platform: "Web tools",
-    oneLiner: "A marketplace surface for understanding driver supply, demand, and operational health.",
-    impact: "A marketplace surface for understanding driver supply, demand, and operational health.",
-    summary: "Operational marketplace work represented as a web artifact: dense, legible, and grounded in real-world movement.",
-    tags: ["Marketplace", "Operations", "Driver tools"],
     deviceType: "laptop",
-    previewAsset: "uber-marketplace",
-    accent: "#151515",
-    threadColor: "#151515",
-    deviceTilt: -5,
-    deviceScale: 0.9,
-    railOffset: -14,
+    previewAsset: "marketplace",
+    accent: "#171717",
+    deviceScale: 0.92,
     confidential: false
   },
   {
     id: "uber-multi-driver-dispatch",
     title: "Multi-driver dispatch app",
     company: "Uber",
-    companyGroup: "Dispatch",
-    companyChapter: "Uber",
     companyLogo: "assets/favicons/uber.ico",
-    logoSource: "https://www.uber.com/favicon.ico",
-    role: "New verticals",
     year: "August 2017-July 2022",
-    platform: "Dispatch app",
-    oneLiner: "A dispatch workflow for coordinating multiple drivers through high-pressure operations.",
-    impact: "A dispatch workflow for coordinating multiple drivers through high-pressure operations.",
-    summary: "A logistics-focused product surface for coordinating more than one driver, abstracted into a map-and-queue preview.",
-    tags: ["Dispatch", "Logistics", "Operational UX"],
     deviceType: "laptop",
-    previewAsset: "uber-dispatch",
-    accent: "#2f2f2f",
-    threadColor: "#2f2f2f",
-    deviceTilt: 4,
+    previewAsset: "dispatch",
+    accent: "#202020",
     deviceScale: 0.94,
-    railOffset: 28,
     confidential: false
   },
   {
     id: "uber-recruiting-app",
     title: "Uber recruiting app",
     company: "Uber",
-    companyGroup: "Recruiting",
-    companyChapter: "Uber",
     companyLogo: "assets/favicons/uber.ico",
-    logoSource: "https://www.uber.com/favicon.ico",
-    role: "New verticals",
     year: "August 2017-July 2022",
-    platform: "Internal app",
-    oneLiner: "A recruiting surface that helped candidates and teams move through hiring with less friction.",
-    impact: "A recruiting surface that helped candidates and teams move through hiring with less friction.",
-    summary: "People-systems work shown as a quiet internal app artifact, balancing process clarity with human moments.",
-    tags: ["Recruiting", "Internal tools", "Workflow"],
     deviceType: "laptop",
-    previewAsset: "uber-recruiting",
-    accent: "#4d4d4d",
-    threadColor: "#4d4d4d",
-    deviceTilt: -2,
-    deviceScale: 0.88,
-    railOffset: -26,
+    previewAsset: "recruiting",
+    accent: "#3b3b3b",
+    deviceScale: 0.9,
     confidential: false
   },
   {
     id: "uber-pool-app",
     title: "Uber Pool app",
     company: "Uber",
-    companyGroup: "Pool",
-    companyChapter: "Uber",
     companyLogo: "assets/favicons/uber.ico",
-    logoSource: "https://www.uber.com/favicon.ico",
-    role: "New verticals",
     year: "August 2017-July 2022",
-    platform: "Rider app",
-    oneLiner: "Shared-ride product work aimed at making pooled trips easier to understand and trust.",
-    impact: "Shared-ride product work aimed at making pooled trips easier to understand and trust.",
-    summary: "Consumer mobility work focused on expectations, matching, pickup clarity, and the mental model of sharing a ride.",
-    tags: ["Rider app", "Shared rides", "Mobility"],
     deviceType: "phone",
-    previewAsset: "uber-pool",
+    previewAsset: "pool",
     accent: "#111111",
-    threadColor: "#111111",
-    deviceTilt: 7,
-    deviceScale: 0.96,
-    railOffset: 18,
+    deviceScale: 0.98,
     confidential: false
   },
   {
     id: "uber-shared-app",
     title: "Uber Shared app",
     company: "Uber",
-    companyGroup: "Shared",
-    companyChapter: "Uber",
     companyLogo: "assets/favicons/uber.ico",
-    logoSource: "https://www.uber.com/favicon.ico",
-    role: "New verticals",
     year: "August 2017-July 2022",
-    platform: "Rider app",
-    oneLiner: "A later shared-mobility surface for clearer rider expectations and trip coordination.",
-    impact: "A later shared-mobility surface for clearer rider expectations and trip coordination.",
-    summary: "Shared mobility design work represented as a follow-on node, keeping the portfolio public-safe while showing product evolution.",
-    tags: ["Shared mobility", "Consumer UX", "Rider trust"],
     deviceType: "phone",
-    previewAsset: "uber-shared",
-    accent: "#383838",
-    threadColor: "#383838",
-    deviceTilt: -6,
-    deviceScale: 0.91,
-    railOffset: -18,
+    previewAsset: "shared",
+    accent: "#2b2b2b",
+    deviceScale: 0.96,
     confidential: false
   },
   {
     id: "uber-connect-app",
     title: "Uber Connect app",
     company: "Uber",
-    companyGroup: "Connect",
-    companyChapter: "Uber",
     companyLogo: "assets/favicons/uber.ico",
-    logoSource: "https://www.uber.com/favicon.ico",
-    role: "New verticals",
     year: "August 2017-July 2022",
-    platform: "Delivery app",
-    oneLiner: "Delivery workflows that helped people send and receive items through the Uber network.",
-    impact: "Delivery workflows that helped people send and receive items through the Uber network.",
-    summary: "A new-verticals delivery node for item sending, pickup confidence, and lightweight logistics in a consumer app.",
-    tags: ["Delivery", "New verticals", "Consumer logistics"],
     deviceType: "phone",
-    previewAsset: "uber-connect",
-    accent: "#0f0f0f",
-    threadColor: "#0f0f0f",
-    deviceTilt: 4,
+    previewAsset: "connect",
+    accent: "#111111",
     deviceScale: 0.98,
-    railOffset: 24,
     confidential: false
   },
   {
     id: "meta-privacy-account-center",
     title: "Privacy Account Center app/web",
     company: "Meta",
-    companyGroup: "Account Center",
-    companyChapter: "Meta",
     companyLogo: "assets/favicons/meta.ico",
-    logoSource: "https://www.meta.com/favicon.ico",
-    role: "Privacy",
     year: "May 2022-April 2024",
-    platform: "App and web",
-    oneLiner: "Privacy controls across app and web made easier to understand in one account surface.",
-    impact: "Privacy controls across app and web made easier to understand in one account surface.",
-    summary: "A privacy systems project represented through a restrained control-surface mock, with emphasis on clarity and trust.",
-    tags: ["Privacy", "Account systems", "App + web"],
     deviceType: "laptop",
-    previewAsset: "meta-privacy",
+    previewAsset: "privacy",
     accent: "#0668e1",
-    threadColor: "#0668e1",
-    deviceTilt: -3,
     deviceScale: 0.94,
-    railOffset: -24,
     confidential: false
   },
   {
     id: "meta-premium-subscription",
     title: "Meta Premium subscription",
     company: "Meta",
-    companyGroup: "Subscription",
-    companyChapter: "Meta",
     companyLogo: "assets/favicons/meta.ico",
-    logoSource: "https://www.meta.com/favicon.ico",
-    role: "Privacy",
     year: "May 2022-April 2024",
-    platform: "Mobile subscription",
-    oneLiner: "Subscription product work shaped around clarity, trust, and purchase confidence.",
-    impact: "Subscription product work shaped around clarity, trust, and purchase confidence.",
-    summary: "A premium subscription node focused on clear value framing, decision support, and trust in a consumer-grade flow.",
-    tags: ["Subscription", "Consumer product", "Trust"],
     deviceType: "phone",
-    previewAsset: "meta-premium",
-    accent: "#0a7cff",
-    threadColor: "#0a7cff",
-    deviceTilt: 6,
+    previewAsset: "subscription",
+    accent: "#0a6fd6",
     deviceScale: 0.96,
-    railOffset: 14,
     confidential: false
   },
   {
     id: "meta-ai-app",
     title: "Meta AI app",
     company: "Meta",
-    companyGroup: "Meta AI",
-    companyChapter: "Meta",
     companyLogo: "assets/favicons/meta.ico",
-    logoSource: "https://www.meta.com/favicon.ico",
-    role: "Privacy",
     year: "May 2022-April 2024",
-    platform: "AI app",
-    oneLiner: "AI product work exploring useful, approachable creative and assistant experiences.",
-    impact: "AI product work exploring useful, approachable creative and assistant experiences.",
-    summary: "The default focused project: a public-safe Meta AI app node with a phone-native preview and restrained generative-product motion.",
-    tags: ["Generative AI", "Assistant UX", "Consumer app"],
     deviceType: "phone",
-    previewAsset: "meta-ai",
+    previewAsset: "ai",
     accent: "#4169e1",
-    threadColor: "#4169e1",
-    deviceTilt: -5,
-    deviceScale: 1.04,
-    railOffset: -16,
+    deviceScale: 1,
     confidential: false
   },
   {
     id: "tiktok-confidential-genai",
     title: "Confidential GenAI work",
     company: "TikTok",
-    companyGroup: "Confidential",
-    companyChapter: "TikTok",
     companyLogo: "assets/favicons/tiktok.ico",
-    logoSource: "https://www.tiktok.com/favicon.ico",
-    role: "GenAI",
     year: "May 2024-Present",
-    platform: "Confidential",
-    oneLiner: "Current GenAI work; intentionally held at teaser level until it can be discussed publicly.",
-    impact: "Current GenAI work; intentionally held at teaser level until it can be discussed publicly.",
-    summary: "A locked teaser node for current TikTok GenAI work. Details stay deliberately high-level until they are safe to share.",
-    tags: ["GenAI", "Current work", "Confidential"],
     deviceType: "phone",
-    previewAsset: "tiktok-confidential",
-    accent: "#ee1d52",
-    threadColor: "#00f2ea",
-    deviceTilt: 5,
-    deviceScale: 0.96,
-    railOffset: 20,
+    previewAsset: "confidential",
+    accent: "#d7194a",
+    deviceScale: 0.98,
     confidential: true
   }
 ];
 
+const KONAMI_SEQUENCE = [
+  { key: "ArrowUp", label: "↑" },
+  { key: "ArrowUp", label: "↑" },
+  { key: "ArrowDown", label: "↓" },
+  { key: "ArrowDown", label: "↓" },
+  { key: "ArrowLeft", label: "←" },
+  { key: "ArrowRight", label: "→" },
+  { key: "ArrowLeft", label: "←" },
+  { key: "ArrowRight", label: "→" },
+  { key: "b", label: "B" },
+  { key: "a", label: "A" }
+];
+
+const KONAMI_INPUT_RESET_DELAY = 4200;
+const KONAMI_UNLOCK_RESET_DELAY = 5000;
+
 const state = {
   activeIndex: 0,
-  expanded: false,
+  konamiIndex: 0,
+  konamiUnlocked: false,
+  konamiViewportLocked: false,
   points: [],
   trackWidth: 0,
   worldHeight: 0
@@ -396,106 +222,152 @@ const state = {
 const railViewport = document.querySelector("#rail-viewport");
 const railTrack = document.querySelector("#rail-track");
 const railSvg = document.querySelector("#rail-svg");
-const threadSvg = document.querySelector("#thread-svg");
 const projectNodes = document.querySelector("#project-nodes");
-const railCount = document.querySelector("#rail-count");
-const navButtons = Array.from(document.querySelectorAll(".nav-button"));
+const downloadPromptGroup = document.querySelector("#download-prompt-group");
 const downloadPromptButton = document.querySelector("#download-prompt-button");
-const downloadDialog = document.querySelector("#download-dialog");
-const downloadCloseButton = document.querySelector("#download-close-button");
-const downloadBothButton = document.querySelector("#download-both-button");
-const sheetHandle = document.querySelector(".sheet-handle");
-const sheetHandleText = document.querySelector(".sheet-handle-text");
-const sheetLogo = document.querySelector("#sheet-logo");
+const projectSheet = document.querySelector("#project-sheet");
 const sheetKicker = document.querySelector("#sheet-kicker");
 const sheetTitle = document.querySelector("#sheet-title");
-const sheetImpact = document.querySelector("#sheet-impact");
-const sheetMeta = document.querySelector("#sheet-meta");
-const sheetSummary = document.querySelector("#sheet-summary");
-const sheetSummaryCopy = document.querySelector("#sheet-summary-copy");
-const sheetTags = document.querySelector("#sheet-tags");
-const progressRail = document.querySelector("#progress-rail");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const downloadFiles = [
-  "assets/downloads/matt-reynolds-resume.pdf",
-  "assets/downloads/matt-reynolds-portfolio.pdf"
-];
 
-let lastFocusedElement = null;
+let scrollTimer;
+let suppressScrollUntil = 0;
+let konamiInputResetTimer;
+let konamiUnlockResetTimer;
 
 function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
 }
 
-function formatCount(index) {
-  return `${String(index + 1).padStart(2, "0")} / ${String(projects.length).padStart(2, "0")}`;
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
 function getRailMetrics() {
   const viewportWidth = railViewport.clientWidth || window.innerWidth;
-  const viewportHeight = railViewport.clientHeight || Math.round(window.innerHeight * 0.72);
-  const spacing = clamp(viewportWidth * 0.68, 248, 360);
+  const viewportHeight = railViewport.clientHeight || Math.round(window.innerHeight * 0.62);
+  const spacing = clamp(viewportWidth * 0.72, 258, 382);
   const sidePad = viewportWidth / 2;
-  const baseline = clamp(viewportHeight * 0.64, 300, 460);
+  const baseline = clamp(viewportHeight * 0.66, 306, 440);
+  const lift = clamp(viewportHeight * 0.24, 110, 136);
   const trackWidth = sidePad * 2 + spacing * (projects.length - 1);
 
-  return { viewportWidth, viewportHeight, spacing, sidePad, baseline, trackWidth };
+  return { viewportWidth, viewportHeight, spacing, sidePad, baseline, lift, trackWidth };
 }
 
-function pathThrough(points) {
-  if (points.length === 0) return "";
+function renderPreview(project) {
+  const line = (size = "medium") => `<span class="mock-line ${size}"></span>`;
+  const rows = (count = 3) => Array.from({ length: count }, () => "<span class=\"mock-row\"></span>").join("");
+  const cards = (count = 4) => `<span class="mock-grid">${Array.from({ length: count }, () => "<span></span>").join("")}</span>`;
 
-  let d = `M ${points[0].x} ${points[0].y}`;
-  for (let index = 1; index < points.length; index += 1) {
-    const prev = points[index - 1];
-    const point = points[index];
-    const cx = (prev.x + point.x) / 2;
-    d += ` Q ${cx} ${prev.y}, ${point.x} ${point.y}`;
+  switch (project.previewAsset) {
+    case "social":
+      return `
+        <span class="mock-panel primary">${line("long")}${line("medium")}</span>
+        <span class="mock-list">${rows(4)}</span>
+      `;
+    case "search":
+      return `
+        <span class="mock-search"></span>
+        <span class="mock-list">${rows(4)}</span>
+      `;
+    case "skywalker":
+      return `
+        <span class="mock-map"></span>
+        <span class="mock-control">${line("long")}${line("short")}</span>
+        <span class="mock-control">${line("medium")}</span>
+      `;
+    case "lists":
+      return `
+        <span class="mock-card primary">${line("medium")}${line("short")}</span>
+        ${cards(4)}
+        <span class="mock-list">${rows(2)}</span>
+      `;
+    case "city":
+      return `
+        <span class="mock-map"></span>
+        <span class="mock-list">${rows(3)}</span>
+      `;
+    case "voice":
+      return `
+        <span class="mock-chat">${line("long")}${line("short")}</span>
+        <span class="mock-chat answer">${line("medium")}</span>
+        <span class="mock-chat">${line("long")}${line("medium")}</span>
+      `;
+    case "marketplace":
+      return `
+        <span class="mock-map"></span>
+        <span class="mock-list">${rows(4)}</span>
+      `;
+    case "dispatch":
+      return `
+        <span class="mock-map"></span>
+        <span class="mock-list">${rows(5)}</span>
+      `;
+    case "recruiting":
+      return `
+        <span class="mock-list">${rows(4)}</span>
+        <span class="mock-panel primary">${line("long")}${line("medium")}${line("short")}</span>
+      `;
+    case "pool":
+    case "shared":
+    case "connect":
+      return `
+        <span class="mock-map"></span>
+        <span class="mock-card primary">${line("long")}${line("short")}</span>
+        <span class="mock-list">${rows(2)}</span>
+      `;
+    case "privacy":
+      return `
+        <span class="mock-control">${line("medium")}</span>
+        <span class="mock-control">${line("long")}</span>
+        <span class="mock-control">${line("short")}</span>
+        <span class="mock-list">${rows(2)}</span>
+      `;
+    case "subscription":
+      return `
+        <span class="mock-card primary">${line("medium")}${line("short")}</span>
+        <span class="mock-control">${line("long")}</span>
+        <span class="mock-control">${line("medium")}</span>
+      `;
+    case "ai":
+      return `
+        <span class="mock-chat">${line("medium")}</span>
+        <span class="mock-chat answer">${line("long")}${line("medium")}</span>
+        ${cards(4)}
+      `;
+    case "confidential":
+      return `
+        <span class="mock-lock-card" aria-hidden="true"></span>
+      `;
+    default:
+      return `
+        <span class="mock-panel primary">${line("long")}${line("medium")}</span>
+        <span class="mock-list">${rows(3)}</span>
+      `;
   }
-
-  return d;
-}
-
-function makeWavyPath(start, end, lift = -90) {
-  const midX = (start.x + end.x) / 2;
-  const midY = Math.min(start.y, end.y) + lift;
-  const wobble = Math.abs(end.x - start.x) * 0.08;
-  return `M ${start.x} ${start.y} C ${midX - wobble} ${midY}, ${midX + wobble} ${midY}, ${end.x} ${end.y}`;
 }
 
 function renderMock(project) {
-  const panelCount = project.deviceType === "phone" ? 4 : 5;
   const confidentialClass = project.confidential ? " is-confidential" : "";
-  const lockOverlay = project.confidential ? "<span class=\"confidential-overlay\" aria-hidden=\"true\">Locked</span>" : "";
-  let panels = "";
-
-  for (let index = 0; index < panelCount; index += 1) {
-    const hero = index === 0 ? " mock-hero" : "";
-    const dots = index === panelCount - 1 ? "<span class=\"mock-dotgrid\"><span></span><span></span><span></span><span></span><span></span><span></span></span>" : "";
-    panels += `
-      <span class="mock-panel${hero}">
-        <span class="mock-line ${index % 2 === 0 ? "long" : "medium"}"></span>
-        <span class="mock-line ${index % 3 === 0 ? "short" : "medium"}"></span>
-        ${dots}
-      </span>
-    `;
-  }
+  const unlockedClass = project.confidential && state.konamiUnlocked ? " is-konami-unlocked" : "";
+  const lockOverlay = project.confidential ? "<span class=\"confidential-overlay\" aria-hidden=\"true\"><span class=\"confidential-status\">Locked</span></span>" : "";
 
   return `
     <span class="logo-chip" aria-hidden="true">
-      <img src="${project.companyLogo}" alt="" decoding="async">
+      <img src="${escapeHtml(project.companyLogo)}" alt="" decoding="async">
     </span>
-    <span class="device-shell ${project.deviceType}${confidentialClass}">
+    <span class="device-shell ${escapeHtml(project.deviceType)}${confidentialClass}${unlockedClass}">
       <span class="device-screen">
-        <span class="mock-ui mock-${project.previewAsset}">
-          ${panels}
+        <span class="mock-ui mock-${escapeHtml(project.previewAsset)}">
+          ${renderPreview(project)}
         </span>
       </span>
       ${lockOverlay}
-    </span>
-    <span class="artifact-label">
-      <span>${project.companyChapter}</span>
-      <span>${project.companyGroup}</span>
     </span>
   `;
 }
@@ -508,12 +380,11 @@ function renderNodes() {
         class="project-node${project.confidential ? " is-confidential-project" : ""}"
         type="button"
         data-index="${index}"
-        data-project-id="${project.id}"
-        aria-label="Show ${project.title}"
+        data-project-id="${escapeHtml(project.id)}"
+        aria-label="Show ${escapeHtml(project.title)}"
         style="
           left: ${point.x}px;
           top: ${point.artifactY}px;
-          --tilt: ${project.deviceTilt}deg;
           --node-scale: ${project.deviceScale};
           --project-color: ${project.accent};
         "
@@ -528,73 +399,183 @@ function renderNodes() {
       setActiveProject(Number(node.dataset.index), true);
     });
   });
+
+  updateKonamiOverlay();
+}
+
+function konamiProgressMarkup() {
+  const keys = KONAMI_SEQUENCE.map((step, index) => {
+    const className = [
+      "konami-key",
+      index < state.konamiIndex ? "is-entered" : "",
+      index === state.konamiIndex ? "is-current" : ""
+    ].filter(Boolean).join(" ");
+
+    return `<span class="${className}">${escapeHtml(step.label)}</span>`;
+  }).join("");
+
+  return `<span class="konami-code">${keys}</span>`;
+}
+
+function updateKonamiOverlay() {
+  const confidentialNodes = Array.from(document.querySelectorAll(".project-node.is-confidential-project"));
+
+  confidentialNodes.forEach((node) => {
+    const overlay = node.querySelector(".confidential-overlay");
+    const shell = node.querySelector(".device-shell");
+    if (!overlay || !shell) return;
+
+    const isProgress = state.konamiIndex > 0 && !state.konamiUnlocked;
+    overlay.classList.toggle("is-progress", isProgress);
+    overlay.classList.toggle("is-unlocked", state.konamiUnlocked);
+    shell.classList.toggle("is-konami-unlocked", state.konamiUnlocked);
+    node.classList.toggle("is-konami-locked", state.konamiViewportLocked);
+
+    if (state.konamiUnlocked) {
+      overlay.innerHTML = "<span class=\"confidential-status\">Unlocked</span>";
+      return;
+    }
+
+    overlay.innerHTML = isProgress
+      ? konamiProgressMarkup()
+      : "<span class=\"confidential-status\">Locked</span>";
+  });
+}
+
+function setKonamiViewportLock(isLocked) {
+  state.konamiViewportLocked = isLocked;
+  railViewport.classList.toggle("is-konami-locked", isLocked);
+  updateKonamiOverlay();
+
+  if (!isLocked) return;
+
+  suppressScrollUntil = performance.now() + KONAMI_INPUT_RESET_DELAY;
+  const activeNode = document.querySelector(".project-node.is-active.is-confidential-project");
+  activeNode?.focus({ preventScroll: true });
+}
+
+function resetKonamiProgress() {
+  window.clearTimeout(konamiInputResetTimer);
+  state.konamiIndex = 0;
+  setKonamiViewportLock(false);
+  updateKonamiOverlay();
+}
+
+function resetKonamiLock() {
+  window.clearTimeout(konamiInputResetTimer);
+  window.clearTimeout(konamiUnlockResetTimer);
+  state.konamiUnlocked = false;
+  state.konamiIndex = 0;
+  setKonamiViewportLock(false);
+  updateKonamiOverlay();
+}
+
+function scheduleKonamiInputReset() {
+  window.clearTimeout(konamiInputResetTimer);
+  if (state.konamiUnlocked) return;
+  konamiInputResetTimer = window.setTimeout(resetKonamiProgress, KONAMI_INPUT_RESET_DELAY);
+}
+
+function scheduleKonamiLockReset() {
+  window.clearTimeout(konamiInputResetTimer);
+  window.clearTimeout(konamiUnlockResetTimer);
+  konamiUnlockResetTimer = window.setTimeout(resetKonamiLock, KONAMI_UNLOCK_RESET_DELAY);
+}
+
+function normalizeKonamiKey(event) {
+  if (event.key.startsWith("Arrow")) return event.key;
+  const key = event.key.toLowerCase();
+  return key === "a" || key === "b" ? key : "";
+}
+
+function handleKonamiKeydown(event) {
+  const target = event.target;
+  const isTyping = target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target?.isContentEditable;
+  if (isTyping) return false;
+
+  const activeProject = projects[state.activeIndex];
+  const firstKey = KONAMI_SEQUENCE[0].key;
+  const key = normalizeKonamiKey(event);
+
+  if (state.konamiUnlocked) {
+    if (key === firstKey && activeProject?.confidential) {
+      window.clearTimeout(konamiUnlockResetTimer);
+      state.konamiUnlocked = false;
+      state.konamiIndex = 0;
+    } else {
+      return false;
+    }
+  }
+
+  if (!key) {
+    if (state.konamiIndex > 0) resetKonamiProgress();
+    return false;
+  }
+
+  const sequenceActive = state.konamiIndex > 0;
+  const canStart = activeProject?.confidential && key === firstKey;
+
+  if (!sequenceActive && !canStart) return false;
+
+  event.preventDefault();
+  event.stopImmediatePropagation();
+
+  if (!sequenceActive) {
+    setKonamiViewportLock(true);
+  }
+
+  const expectedKey = KONAMI_SEQUENCE[state.konamiIndex].key;
+  if (key === expectedKey) {
+    state.konamiIndex += 1;
+
+    if (state.konamiIndex >= KONAMI_SEQUENCE.length) {
+      window.clearTimeout(konamiInputResetTimer);
+      state.konamiUnlocked = true;
+      state.konamiIndex = KONAMI_SEQUENCE.length;
+      setKonamiViewportLock(false);
+      updateKonamiOverlay();
+      scheduleKonamiLockReset();
+      return true;
+    }
+
+    setKonamiViewportLock(true);
+    updateKonamiOverlay();
+    scheduleKonamiInputReset();
+    return true;
+  }
+
+  if (key === firstKey) {
+    state.konamiIndex = 1;
+    setKonamiViewportLock(true);
+    updateKonamiOverlay();
+    scheduleKonamiInputReset();
+    return true;
+  }
+
+  resetKonamiProgress();
+  return true;
 }
 
 function renderRail() {
-  const railPath = pathThrough(state.points);
-  const tickMarkup = state.points.map((point, index) => `
-    <path class="rail-tick" d="M ${point.x - 8} ${point.y - 46} C ${point.x - 6} ${point.y - 16}, ${point.x - 4} ${point.y + 20}, ${point.x - 2} ${point.y + 48}" />
-    ${index % 2 === 0 ? `<path class="sky-doodle" d="M ${point.x - 132} ${point.y - 178} c 38 18 52 18 82 -2 c 28 -18 42 -17 68 2" />` : ""}
-    ${index % 3 === 1 ? `<path class="sky-doodle" d="M ${point.x + 118} ${point.y - 154} c 8 -28 30 -28 35 -8" />` : ""}
-  `).join("");
+  const first = state.points[0];
+  const last = state.points[state.points.length - 1];
+  const active = state.points[state.activeIndex] || first;
+  if (!first || !last || !active) return;
+
+  const railPath = `M ${first.x} ${first.y} L ${last.x} ${last.y}`;
+  const markerPulse = prefersReducedMotion ? "" : `
+    <circle class="rail-position-halo" cx="${active.x}" cy="${active.y}" r="9">
+      <animate attributeName="r" values="9;18;9" dur="1.8s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0.28;0;0.28" dur="1.8s" repeatCount="indefinite" />
+    </circle>
+  `;
 
   railSvg.setAttribute("viewBox", `0 0 ${state.trackWidth} ${state.worldHeight}`);
   railSvg.innerHTML = `
-    <path class="rail-path shadow" d="${railPath}" />
     <path class="rail-path" d="${railPath}" />
-    ${tickMarkup}
+    ${markerPulse}
+    <circle class="rail-position-dot" cx="${active.x}" cy="${active.y}" r="5.5" />
   `;
-}
-
-function renderThreads() {
-  const active = state.points[state.activeIndex];
-  const previous = state.points[Math.max(0, state.activeIndex - 1)];
-  const next = state.points[Math.min(projects.length - 1, state.activeIndex + 1)];
-  const first = state.points[0];
-  const activeProject = projects[state.activeIndex];
-  const progressPath = makeWavyPath(
-    { x: first.x, y: first.y - 34 },
-    { x: active.x, y: active.y - 34 },
-    -62
-  );
-
-  const threadPaths = [
-    {
-      d: progressPath,
-      color: activeProject.threadColor,
-      className: "progress"
-    },
-    {
-      d: makeWavyPath({ x: previous.x, y: previous.artifactY - 82 }, { x: active.x, y: active.artifactY - 60 }, -88),
-      color: projects[Math.max(0, state.activeIndex - 1)].threadColor,
-      className: "energy"
-    },
-    {
-      d: makeWavyPath({ x: next.x, y: next.artifactY - 70 }, { x: active.x, y: active.artifactY - 46 }, -112),
-      color: projects[Math.min(projects.length - 1, state.activeIndex + 1)].threadColor,
-      className: "energy"
-    },
-    {
-      d: makeWavyPath({ x: active.x - 210, y: active.artifactY - 145 }, { x: active.x + 40, y: active.artifactY - 90 }, -40),
-      color: "#f0b22f",
-      className: "energy"
-    },
-    {
-      d: makeWavyPath({ x: active.x + 230, y: active.artifactY - 132 }, { x: active.x - 34, y: active.artifactY - 82 }, -52),
-      color: "#e85f9d",
-      className: "energy"
-    }
-  ];
-
-  threadSvg.setAttribute("viewBox", `0 0 ${state.trackWidth} ${state.worldHeight}`);
-  threadSvg.innerHTML = threadPaths.map((thread, index) => `
-    <path
-      class="thread ${thread.className}"
-      d="${thread.d}"
-      stroke="${thread.color}"
-      style="animation-delay: ${index * -0.48}s"
-    />
-  `).join("");
 }
 
 function buildGeometry() {
@@ -605,41 +586,27 @@ function buildGeometry() {
 
   state.points = projects.map((project, index) => {
     const x = metrics.sidePad + metrics.spacing * index;
-    const wave = Math.sin(index * 1.23) * 16;
-    const y = metrics.baseline + wave + project.railOffset * 0.45;
-    const artifactY = y - clamp(metrics.viewportHeight * 0.2, 78, 128) + project.railOffset;
+    const y = metrics.baseline;
+    const artifactY = y - metrics.lift;
     return { x, y, artifactY };
   });
 
   renderRail();
-  renderThreads();
   renderNodes();
   syncActiveClasses();
+  updateProjectLabelPosition();
 }
 
-function renderMeta(project) {
-  const items = [
-    ["Company", project.company],
-    ["Role", project.role],
-    ["Dates", project.year],
-    ["Platform", project.platform]
-  ];
+function updateProjectLabelPosition() {
+  const point = state.points[state.activeIndex];
+  if (!point || !projectSheet) return;
 
-  sheetMeta.innerHTML = items.map(([label, value]) => `
-    <div>
-      <dt>${label}</dt>
-      <dd>${value}</dd>
-    </div>
-  `).join("");
-}
+  const viewportRect = railViewport.getBoundingClientRect();
+  const x = viewportRect.left + point.x - railViewport.scrollLeft;
+  const y = viewportRect.top + point.y + 36;
 
-function renderProgress() {
-  const progress = projects.length === 1 ? 100 : (state.activeIndex / (projects.length - 1)) * 100;
-  document.documentElement.style.setProperty("--active-progress", `${progress}%`);
-  progressRail.innerHTML = projects.map((project, index) => {
-    const left = projects.length === 1 ? 100 : (index / (projects.length - 1)) * 100;
-    return `<span class="progress-dot" style="--dot-left: ${left}%; --dot-color: ${project.threadColor};"></span>`;
-  }).join("");
+  projectSheet.style.setProperty("--label-x", `${x}px`);
+  projectSheet.style.setProperty("--label-y", `${y}px`);
 }
 
 function syncActiveClasses() {
@@ -654,38 +621,9 @@ function syncActiveClasses() {
   });
 }
 
-function setExpanded(isExpanded) {
-  state.expanded = isExpanded;
-  sheetSummary.hidden = !isExpanded && window.innerWidth < 960;
-  sheetHandle.setAttribute("aria-expanded", isExpanded ? "true" : "false");
-  sheetHandleText.textContent = isExpanded ? "Less" : "More";
-}
-
-function setDownloadDialogOpen(isOpen) {
-  if (!downloadDialog || !downloadPromptButton) return;
-
-  downloadDialog.hidden = !isOpen;
-  downloadPromptButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
-
-  if (isOpen) {
-    lastFocusedElement = document.activeElement;
-    window.setTimeout(() => downloadCloseButton?.focus(), 0);
-  } else if (lastFocusedElement instanceof HTMLElement) {
-    lastFocusedElement.focus();
-    lastFocusedElement = null;
-  }
-}
-
-function triggerDownload(filePath, delay = 0) {
-  window.setTimeout(() => {
-    const link = document.createElement("a");
-    link.href = filePath;
-    link.download = "";
-    link.rel = "noopener";
-    document.body.append(link);
-    link.click();
-    link.remove();
-  }, delay);
+function setDownloadLinksOpen(isOpen) {
+  downloadPromptGroup?.classList.toggle("is-open", isOpen);
+  downloadPromptButton?.setAttribute("aria-expanded", isOpen ? "true" : "false");
 }
 
 function setActiveProject(index, shouldScroll = false) {
@@ -694,24 +632,17 @@ function setActiveProject(index, shouldScroll = false) {
   const point = state.points[state.activeIndex];
 
   document.documentElement.style.setProperty("--active-accent", project.accent);
-  document.documentElement.style.setProperty("--active-thread", project.threadColor);
-  railCount.textContent = formatCount(state.activeIndex);
   sheetKicker.textContent = `${project.company} / ${project.year}`;
   sheetTitle.textContent = project.title;
-  sheetImpact.textContent = project.oneLiner || project.impact;
-  sheetSummaryCopy.textContent = project.summary;
-  sheetTags.innerHTML = project.tags.map((tag) => `<li>${tag}</li>`).join("");
 
-  if (sheetLogo) {
-    sheetLogo.hidden = !project.companyLogo;
-    sheetLogo.src = project.companyLogo || "";
-    sheetLogo.alt = project.companyLogo ? `${project.company} logo` : "";
+  if (!project.confidential && state.konamiIndex > 0 && !state.konamiUnlocked) {
+    resetKonamiProgress();
   }
 
-  renderMeta(project);
-  renderProgress();
-  renderThreads();
+  renderRail();
   syncActiveClasses();
+  updateProjectLabelPosition();
+  updateKonamiOverlay();
 
   if (shouldScroll && point) {
     const scrollLeft = point.x - railViewport.clientWidth / 2;
@@ -739,9 +670,14 @@ function getCenteredIndex() {
   return closestIndex;
 }
 
-let scrollTimer;
-let suppressScrollUntil = 0;
 railViewport.addEventListener("scroll", () => {
+  updateProjectLabelPosition();
+
+  if (state.konamiViewportLocked) {
+    suppressScrollUntil = performance.now() + 220;
+    return;
+  }
+
   if (performance.now() < suppressScrollUntil) {
     return;
   }
@@ -755,7 +691,11 @@ railViewport.addEventListener("scroll", () => {
   }, 80);
 }, { passive: true });
 
+document.addEventListener("keydown", handleKonamiKeydown, { capture: true });
+
 railViewport.addEventListener("keydown", (event) => {
+  if (state.konamiViewportLocked) return;
+
   if (event.key === "ArrowRight") {
     event.preventDefault();
     event.stopPropagation();
@@ -770,10 +710,11 @@ railViewport.addEventListener("keydown", (event) => {
 });
 
 document.addEventListener("keydown", (event) => {
+  if (state.konamiViewportLocked) return;
+
   const target = event.target;
   const isTyping = target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target?.isContentEditable;
   if (isTyping) return;
-  if (downloadDialog && !downloadDialog.hidden) return;
 
   if (event.key === "ArrowRight") {
     setActiveProject(state.activeIndex + 1, true);
@@ -784,39 +725,22 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-navButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    setActiveProject(state.activeIndex + Number(button.dataset.direction), true);
-  });
-});
-
 downloadPromptButton?.addEventListener("click", () => {
-  setDownloadDialogOpen(true);
+  const shouldOpen = !downloadPromptGroup?.classList.contains("is-open");
+  setDownloadLinksOpen(shouldOpen);
 });
 
-downloadCloseButton?.addEventListener("click", () => {
-  setDownloadDialogOpen(false);
-});
+document.addEventListener("click", (event) => {
+  const targetElement = event.target instanceof Element ? event.target : null;
 
-downloadDialog?.addEventListener("click", (event) => {
-  if (event.target === downloadDialog) {
-    setDownloadDialogOpen(false);
+  if (downloadPromptGroup?.classList.contains("is-open") && !targetElement?.closest("#download-prompt-group")) {
+    setDownloadLinksOpen(false);
   }
 });
 
-downloadBothButton?.addEventListener("click", () => {
-  downloadFiles.forEach((filePath, index) => {
-    triggerDownload(filePath, index * 180);
-  });
-});
-
-sheetHandle.addEventListener("click", () => {
-  setExpanded(!state.expanded);
-});
-
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && downloadDialog && !downloadDialog.hidden) {
-    setDownloadDialogOpen(false);
+  if (event.key === "Escape" && downloadPromptGroup?.classList.contains("is-open")) {
+    setDownloadLinksOpen(false);
   }
 });
 
@@ -824,15 +748,14 @@ window.addEventListener("resize", () => {
   const activeIndex = state.activeIndex;
   buildGeometry();
   setActiveProject(activeIndex, true);
-  setExpanded(state.expanded);
 });
 
 buildGeometry();
-setExpanded(false);
-const initialProjectIndex = projects.findIndex((project) => project.id === "meta-ai-app");
+const initialProjectIndex = projects.findIndex((project) => project.id === "tiktok-confidential-genai");
 setActiveProject(initialProjectIndex >= 0 ? initialProjectIndex : 0, false);
 
 const initialPoint = state.points[state.activeIndex];
 if (initialPoint) {
   railViewport.scrollLeft = initialPoint.x - railViewport.clientWidth / 2;
+  updateProjectLabelPosition();
 }

@@ -1,6 +1,6 @@
-# Matt Reynolds Portfolio Prototype
+# Matt Reynolds Portfolio
 
-A greenfield static prototype for a sketch-inspired, mobile-first horizontal portfolio timeline.
+A static, mobile-first software design portfolio centered on a horizontal project rail. The page is intentionally quiet: one focused node, adjacent work fading away, and only the company, dates, and project title visible.
 
 ## Stack
 
@@ -8,39 +8,64 @@ A greenfield static prototype for a sketch-inspired, mobile-first horizontal por
 - Plain CSS
 - Vanilla JavaScript
 - No build step
-- No package manager
-- Hardcoded project data
+- Local assets only
+- Vercel Web Analytics
 
 ## Files
 
 ```text
-index.html       page structure and metadata
-style.css        visual system, device frames, responsive layout
-script.js          hardcoded project data and interaction state
-favicon.svg        simple browser icon
-assets/avatar/     local header avatar
-assets/downloads/  downloadable resume and portfolio PDFs
-assets/favicons/   company favicon assets for project identification
+index.html          page structure, metadata, analytics snippet
+style.css           rail, device frames, responsive layout, Konami states
+script.js           project data, rail geometry, keyboard/scroll interaction
+favicon.svg         browser icon
+assets/avatar/      local header avatar
+assets/downloads/   downloadable resume PDF
+assets/favicons/    company favicon assets for project identification
 ```
 
 ## Interaction
 
-- The first screen is the timeline: a sparse sketch rail with device previews.
-- Horizontal pan-and-snap centers one active project at a time.
-- Rainbow thread paths animate toward the selected project and also act as progress cues.
-- A bottom sheet shows the selected project metadata and expands for context.
-- Initial focus lands on the Meta AI app node.
+- Initial focus lands on the TikTok confidential GenAI node.
+- Horizontal scroll snap and ArrowLeft/ArrowRight move through the 16-node project sequence.
+- The active project sits on the timeline marker; nearby projects fade to support comparison without clutter.
+- The selected label stays centered on the active node and shows only company, date range, and project name.
+- The header name reveals quiet `Portfolio` and `Resume` download links on hover, focus, or tap. Both currently point to the resume PDF.
+- Typing the Konami code on the confidential TikTok node replaces `Locked` with progress inputs, locks timeline movement before the left/right commands, shows `Unlocked` on completion, then returns to `Locked` after 5 seconds.
 
-## Content Note
+## Content Policy
 
-Project role and date ranges are based on `Profile.pdf`. Project nodes use the public-shareable company/project list supplied by Matt, with concise one-line copy only. TikTok is rendered as a confidential teaser with no project specifics.
+- No invented metrics.
+- No private/confidential product detail.
+- TikTok remains a locked teaser until the work can be discussed publicly.
+- Project spacing represents ordered portfolio chronology, not exact employment duration.
+- Visual detail should earn its pixels: no decorative grids, fake depth, noisy animation, or redundant case-study copy.
 
-Company favicons are third-party trademarks used only to identify employer chapters. Full logo SVGs from the earlier pass are retained as source assets, but the rendered rail now uses favicons for consistency. See `assets/favicons/README.md`.
+## Analytics
+
+Vercel Web Analytics is included with the no-build static HTML snippet:
+
+```html
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+```
+
+Web Analytics must also be enabled for the `2026-portfolio` Vercel project.
 
 ## Local Preview
 
 ```sh
-python3 -m http.server 8000
+python3 -m http.server 8766
 ```
 
-Then open `http://127.0.0.1:8000/`.
+Then open `http://127.0.0.1:8766/`.
+
+## Validation
+
+```sh
+tidy -q -e index.html
+node --check script.js
+xmllint --noout favicon.svg
+git diff --check
+```
