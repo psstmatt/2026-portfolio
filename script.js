@@ -181,7 +181,7 @@ const projects = [
   },
   {
     id: "tiktok-confidential-genai",
-    title: "Confidential GenAI work",
+    title: "GenAI platform growth",
     company: "TikTok",
     companyLogo: "assets/favicons/tiktok.ico",
     year: "May 2024-Present",
@@ -206,14 +206,32 @@ const KONAMI_SEQUENCE = [
   { key: "a", label: "A" }
 ];
 
+const MOBILE_UNLOCK_SEQUENCE = [
+  { gesture: "up", label: "↑" },
+  { gesture: "up", label: "↑" },
+  { gesture: "down", label: "↓" },
+  { gesture: "down", label: "↓" },
+  { gesture: "left", label: "←" },
+  { gesture: "right", label: "→" },
+  { gesture: "left", label: "←" },
+  { gesture: "right", label: "→" },
+  { gesture: "tap", label: "•" },
+  { gesture: "tap", label: "•" }
+];
+
 const KONAMI_INPUT_RESET_DELAY = 4200;
 const KONAMI_UNLOCK_RESET_DELAY = 5000;
+const SECRET_GESTURE_DISTANCE = 30;
+const SECRET_TAP_DISTANCE = 14;
+const SECRET_TAP_DURATION = 420;
 
 const state = {
   activeIndex: 0,
   konamiIndex: 0,
   konamiUnlocked: false,
   konamiViewportLocked: false,
+  secretInputMode: "keyboard",
+  hasInitialized: false,
   points: [],
   trackWidth: 0,
   worldHeight: 0
@@ -228,12 +246,23 @@ const downloadPromptButton = document.querySelector("#download-prompt-button");
 const projectSheet = document.querySelector("#project-sheet");
 const sheetKicker = document.querySelector("#sheet-kicker");
 const sheetTitle = document.querySelector("#sheet-title");
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+const coarsePointerQuery = window.matchMedia("(pointer: coarse)");
+let prefersReducedMotion = reducedMotionQuery.matches;
 
 let scrollTimer;
+let scrollFrame;
+let resizeTimer;
 let suppressScrollUntil = 0;
 let konamiInputResetTimer;
 let konamiUnlockResetTimer;
+let secretPointerStart;
+let suppressNextNodeClickUntil = 0;
+
+reducedMotionQuery.addEventListener?.("change", (event) => {
+  prefersReducedMotion = event.matches;
+  renderRail();
+});
 
 function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
@@ -247,16 +276,40 @@ function escapeHtml(value) {
     .replace(/"/g, "&quot;");
 }
 
+function canUseHaptics() {
+  return !prefersReducedMotion && coarsePointerQuery.matches && "vibrate" in navigator;
+}
+
+function pulseHaptic(type = "tick") {
+  if (!canUseHaptics()) return;
+
+  const patterns = {
+    tick: 5,
+    snap: 7,
+    tap: 4,
+    confirm: [8, 24, 10],
+    unlock: [12, 34, 18]
+  };
+
+  navigator.vibrate(patterns[type] || patterns.tick);
+}
+
 function getRailMetrics() {
   const viewportWidth = railViewport.clientWidth || window.innerWidth;
   const viewportHeight = railViewport.clientHeight || Math.round(window.innerHeight * 0.62);
   const spacing = clamp(viewportWidth * 0.72, 258, 382);
   const sidePad = viewportWidth / 2;
-  const baseline = clamp(viewportHeight * 0.66, 306, 440);
-  const lift = clamp(viewportHeight * 0.24, 110, 136);
+  const isMobile = viewportWidth <= 700;
+  const baseline = isMobile
+    ? clamp(viewportHeight * 0.62, 292, 414)
+    : clamp(viewportHeight * 0.66, 306, 440);
+  const lift = isMobile
+    ? clamp(viewportHeight * 0.23, 108, 132)
+    : clamp(viewportHeight * 0.24, 110, 136);
+  const arcLift = isMobile ? clamp(viewportHeight * 0.044, 22, 34) : 0;
   const trackWidth = sidePad * 2 + spacing * (projects.length - 1);
 
-  return { viewportWidth, viewportHeight, spacing, sidePad, baseline, lift, trackWidth };
+  return { viewportWidth, viewportHeight, spacing, sidePad, baseline, lift, arcLift, trackWidth };
 }
 
 function renderPreview(project) {
@@ -396,15 +449,21 @@ function renderNodes() {
 
   projectNodes.querySelectorAll(".project-node").forEach((node) => {
     node.addEventListener("click", () => {
+      if (performance.now() < suppressNextNodeClickUntil) return;
+      pulseHaptic("tap");
       setActiveProject(Number(node.dataset.index), true);
     });
+    node.addEventListener("pointerdown", handleSecretPointerDown);
+    node.addEventListener("pointerup", handleSecretPointerUp);
+    node.addEventListener("pointercancel", clearSecretPointer);
   });
 
   updateKonamiOverlay();
 }
 
 function konamiProgressMarkup() {
-  const keys = KONAMI_SEQUENCE.map((step, index) => {
+  const sequence = getSecretSequence(state.secretInputMode);
+  const keys = sequence.map((step, index) => {
     const className = [
       "konami-key",
       index < state.konamiIndex ? "is-entered" : "",
@@ -415,6 +474,14 @@ function konamiProgressMarkup() {
   }).join("");
 
   return `<span class="konami-code">${keys}</span>`;
+}
+
+function getSecretSequence(mode) {
+  return mode === "gesture" ? MOBILE_UNLOCK_SEQUENCE : KONAMI_SEQUENCE;
+}
+
+function getSecretInput(step, mode) {
+  return mode === "gesture" ? step.gesture : step.key;
 }
 
 function updateKonamiOverlay() {
@@ -450,13 +517,16 @@ function setKonamiViewportLock(isLocked) {
   if (!isLocked) return;
 
   suppressScrollUntil = performance.now() + KONAMI_INPUT_RESET_DELAY;
-  const activeNode = document.querySelector(".project-node.is-active.is-confidential-project");
-  activeNode?.focus({ preventScroll: true });
+  if (state.secretInputMode === "keyboard") {
+    const activeNode = document.querySelector(".project-node.is-active.is-confidential-project");
+    activeNode?.focus({ preventScroll: true });
+  }
 }
 
 function resetKonamiProgress() {
   window.clearTimeout(konamiInputResetTimer);
   state.konamiIndex = 0;
+  state.secretInputMode = "keyboard";
   setKonamiViewportLock(false);
   updateKonamiOverlay();
 }
@@ -466,6 +536,7 @@ function resetKonamiLock() {
   window.clearTimeout(konamiUnlockResetTimer);
   state.konamiUnlocked = false;
   state.konamiIndex = 0;
+  state.secretInputMode = "keyboard";
   setKonamiViewportLock(false);
   updateKonamiOverlay();
 }
@@ -482,10 +553,85 @@ function scheduleKonamiLockReset() {
   konamiUnlockResetTimer = window.setTimeout(resetKonamiLock, KONAMI_UNLOCK_RESET_DELAY);
 }
 
+function completeSecretUnlock({ haptic = true } = {}) {
+  window.clearTimeout(konamiInputResetTimer);
+  state.konamiUnlocked = true;
+  state.konamiIndex = getSecretSequence(state.secretInputMode).length;
+  setKonamiViewportLock(false);
+  updateKonamiOverlay();
+  if (haptic) pulseHaptic("unlock");
+  scheduleKonamiLockReset();
+  return { handled: true, advanced: true, completed: true };
+}
+
 function normalizeKonamiKey(event) {
   if (event.key.startsWith("Arrow")) return event.key;
   const key = event.key.toLowerCase();
   return key === "a" || key === "b" ? key : "";
+}
+
+function applySecretInput(input, mode) {
+  const activeProject = projects[state.activeIndex];
+  const sequence = getSecretSequence(mode);
+  const firstInput = getSecretInput(sequence[0], mode);
+
+  if (state.konamiUnlocked) {
+    if (input === firstInput && activeProject?.confidential) {
+      window.clearTimeout(konamiUnlockResetTimer);
+      state.konamiUnlocked = false;
+      state.konamiIndex = 0;
+      state.secretInputMode = mode;
+    } else {
+      return { handled: false, advanced: false, completed: false };
+    }
+  }
+
+  if (!input) {
+    if (state.konamiIndex > 0 && state.secretInputMode === mode) resetKonamiProgress();
+    return { handled: false, advanced: false, completed: false };
+  }
+
+  const sequenceActive = state.konamiIndex > 0 && state.secretInputMode === mode;
+  const canStart = activeProject?.confidential && input === firstInput;
+
+  if (!sequenceActive && !canStart) {
+    if (state.konamiIndex > 0 && state.secretInputMode === mode) resetKonamiProgress();
+    return { handled: false, advanced: false, completed: false };
+  }
+
+  if (!sequenceActive) {
+    state.secretInputMode = mode;
+    setKonamiViewportLock(true);
+  }
+
+  const expectedInput = getSecretInput(sequence[state.konamiIndex], mode);
+  if (input === expectedInput) {
+    state.secretInputMode = mode;
+    state.konamiIndex += 1;
+
+    if (state.konamiIndex >= sequence.length) {
+      return completeSecretUnlock({ haptic: mode === "gesture" });
+    }
+
+    setKonamiViewportLock(true);
+    updateKonamiOverlay();
+    scheduleKonamiInputReset();
+    if (mode === "gesture") pulseHaptic("tick");
+    return { handled: true, advanced: true, completed: false };
+  }
+
+  if (input === firstInput) {
+    state.secretInputMode = mode;
+    state.konamiIndex = 1;
+    setKonamiViewportLock(true);
+    updateKonamiOverlay();
+    scheduleKonamiInputReset();
+    if (mode === "gesture") pulseHaptic("tick");
+    return { handled: true, advanced: true, completed: false };
+  }
+
+  resetKonamiProgress();
+  return { handled: true, advanced: false, completed: false };
 }
 
 function handleKonamiKeydown(event) {
@@ -493,67 +639,70 @@ function handleKonamiKeydown(event) {
   const isTyping = target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target?.isContentEditable;
   if (isTyping) return false;
 
-  const activeProject = projects[state.activeIndex];
-  const firstKey = KONAMI_SEQUENCE[0].key;
   const key = normalizeKonamiKey(event);
-
-  if (state.konamiUnlocked) {
-    if (key === firstKey && activeProject?.confidential) {
-      window.clearTimeout(konamiUnlockResetTimer);
-      state.konamiUnlocked = false;
-      state.konamiIndex = 0;
-    } else {
-      return false;
-    }
-  }
-
-  if (!key) {
-    if (state.konamiIndex > 0) resetKonamiProgress();
-    return false;
-  }
-
-  const sequenceActive = state.konamiIndex > 0;
-  const canStart = activeProject?.confidential && key === firstKey;
-
-  if (!sequenceActive && !canStart) return false;
+  const result = applySecretInput(key, "keyboard");
+  if (!result.handled) return false;
 
   event.preventDefault();
   event.stopImmediatePropagation();
-
-  if (!sequenceActive) {
-    setKonamiViewportLock(true);
-  }
-
-  const expectedKey = KONAMI_SEQUENCE[state.konamiIndex].key;
-  if (key === expectedKey) {
-    state.konamiIndex += 1;
-
-    if (state.konamiIndex >= KONAMI_SEQUENCE.length) {
-      window.clearTimeout(konamiInputResetTimer);
-      state.konamiUnlocked = true;
-      state.konamiIndex = KONAMI_SEQUENCE.length;
-      setKonamiViewportLock(false);
-      updateKonamiOverlay();
-      scheduleKonamiLockReset();
-      return true;
-    }
-
-    setKonamiViewportLock(true);
-    updateKonamiOverlay();
-    scheduleKonamiInputReset();
-    return true;
-  }
-
-  if (key === firstKey) {
-    state.konamiIndex = 1;
-    setKonamiViewportLock(true);
-    updateKonamiOverlay();
-    scheduleKonamiInputReset();
-    return true;
-  }
-
-  resetKonamiProgress();
   return true;
+}
+
+function clearSecretPointer() {
+  secretPointerStart = null;
+}
+
+function isActiveSecretNode(node) {
+  return node instanceof Element
+    && node.classList.contains("is-active")
+    && node.classList.contains("is-confidential-project");
+}
+
+function handleSecretPointerDown(event) {
+  const node = event.currentTarget;
+  if (!isActiveSecretNode(node)) return;
+  if (event.pointerType === "mouse" && event.button !== 0) return;
+
+  secretPointerStart = {
+    id: event.pointerId,
+    x: event.clientX,
+    y: event.clientY,
+    time: performance.now()
+  };
+}
+
+function classifySecretGesture(dx, dy, elapsed) {
+  const absX = Math.abs(dx);
+  const absY = Math.abs(dy);
+
+  if (elapsed <= SECRET_TAP_DURATION && absX <= SECRET_TAP_DISTANCE && absY <= SECRET_TAP_DISTANCE) {
+    return "tap";
+  }
+
+  if (Math.max(absX, absY) < SECRET_GESTURE_DISTANCE) return "";
+  if (absY > absX * 1.18) return dy < 0 ? "up" : "down";
+  if (absX > absY * 1.08) return dx < 0 ? "left" : "right";
+  return "";
+}
+
+function handleSecretPointerUp(event) {
+  if (!secretPointerStart || secretPointerStart.id !== event.pointerId) return;
+
+  const gesture = classifySecretGesture(
+    event.clientX - secretPointerStart.x,
+    event.clientY - secretPointerStart.y,
+    performance.now() - secretPointerStart.time
+  );
+
+  secretPointerStart = null;
+  if (!gesture) return;
+
+  const result = applySecretInput(gesture, "gesture");
+  if (!result.handled) return;
+
+  suppressNextNodeClickUntil = performance.now() + 360;
+  event.preventDefault();
+  event.stopPropagation();
 }
 
 function renderRail() {
@@ -562,7 +711,9 @@ function renderRail() {
   const active = state.points[state.activeIndex] || first;
   if (!first || !last || !active) return;
 
-  const railPath = `M ${first.x} ${first.y} L ${last.x} ${last.y}`;
+  const railPath = state.points
+    .map((point, index) => `${index === 0 ? "M" : "L"} ${point.x} ${point.y}`)
+    .join(" ");
   const markerPulse = prefersReducedMotion ? "" : `
     <circle class="rail-position-halo" cx="${active.x}" cy="${active.y}" r="9">
       <animate attributeName="r" values="9;18;9" dur="1.8s" repeatCount="indefinite" />
@@ -586,7 +737,9 @@ function buildGeometry() {
 
   state.points = projects.map((project, index) => {
     const x = metrics.sidePad + metrics.spacing * index;
-    const y = metrics.baseline;
+    const progress = projects.length > 1 ? index / (projects.length - 1) : 0;
+    const curveOffset = metrics.arcLift ? 4 * progress * (1 - progress) * metrics.arcLift : 0;
+    const y = metrics.baseline - curveOffset;
     const artifactY = y - metrics.lift;
     return { x, y, artifactY };
   });
@@ -601,12 +754,20 @@ function updateProjectLabelPosition() {
   const point = state.points[state.activeIndex];
   if (!point || !projectSheet) return;
 
-  const viewportRect = railViewport.getBoundingClientRect();
-  const x = viewportRect.left + point.x - railViewport.scrollLeft;
-  const y = viewportRect.top + point.y + 36;
+  const x = point.x - railViewport.scrollLeft;
+  const y = point.y + 36;
 
   projectSheet.style.setProperty("--label-x", `${x}px`);
   projectSheet.style.setProperty("--label-y", `${y}px`);
+}
+
+function requestProjectLabelPositionUpdate() {
+  if (scrollFrame) return;
+
+  scrollFrame = window.requestAnimationFrame(() => {
+    scrollFrame = 0;
+    updateProjectLabelPosition();
+  });
 }
 
 function syncActiveClasses() {
@@ -627,9 +788,11 @@ function setDownloadLinksOpen(isOpen) {
 }
 
 function setActiveProject(index, shouldScroll = false) {
+  const previousIndex = state.activeIndex;
   state.activeIndex = (index + projects.length) % projects.length;
   const project = projects[state.activeIndex];
   const point = state.points[state.activeIndex];
+  const didChange = previousIndex !== state.activeIndex;
 
   document.documentElement.style.setProperty("--active-accent", project.accent);
   sheetKicker.textContent = `${project.company} / ${project.year}`;
@@ -643,6 +806,10 @@ function setActiveProject(index, shouldScroll = false) {
   syncActiveClasses();
   updateProjectLabelPosition();
   updateKonamiOverlay();
+
+  if (state.hasInitialized && didChange) {
+    pulseHaptic(shouldScroll ? "tap" : "snap");
+  }
 
   if (shouldScroll && point) {
     const scrollLeft = point.x - railViewport.clientWidth / 2;
@@ -671,7 +838,7 @@ function getCenteredIndex() {
 }
 
 railViewport.addEventListener("scroll", () => {
-  updateProjectLabelPosition();
+  requestProjectLabelPositionUpdate();
 
   if (state.konamiViewportLocked) {
     suppressScrollUntil = performance.now() + 220;
@@ -727,7 +894,14 @@ document.addEventListener("keydown", (event) => {
 
 downloadPromptButton?.addEventListener("click", () => {
   const shouldOpen = !downloadPromptGroup?.classList.contains("is-open");
+  pulseHaptic(shouldOpen ? "confirm" : "tap");
   setDownloadLinksOpen(shouldOpen);
+});
+
+document.querySelectorAll(".site-links a, .download-popout a").forEach((link) => {
+  link.addEventListener("click", () => {
+    pulseHaptic("tap");
+  }, { passive: true });
 });
 
 document.addEventListener("click", (event) => {
@@ -745,17 +919,26 @@ document.addEventListener("keydown", (event) => {
 });
 
 window.addEventListener("resize", () => {
-  const activeIndex = state.activeIndex;
-  buildGeometry();
-  setActiveProject(activeIndex, true);
+  window.clearTimeout(resizeTimer);
+  resizeTimer = window.setTimeout(() => {
+    const activeIndex = state.activeIndex;
+    buildGeometry();
+    setActiveProject(activeIndex, true);
+  }, 110);
 });
 
 buildGeometry();
 const initialProjectIndex = projects.findIndex((project) => project.id === "tiktok-confidential-genai");
 setActiveProject(initialProjectIndex >= 0 ? initialProjectIndex : 0, false);
 
+if (new URLSearchParams(window.location.search).get("unlock") === "true" && projects[state.activeIndex]?.confidential) {
+  completeSecretUnlock({ haptic: false });
+}
+
 const initialPoint = state.points[state.activeIndex];
 if (initialPoint) {
   railViewport.scrollLeft = initialPoint.x - railViewport.clientWidth / 2;
   updateProjectLabelPosition();
 }
+
+state.hasInitialized = true;

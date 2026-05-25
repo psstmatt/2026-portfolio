@@ -101,7 +101,8 @@ a:focus-visible,
 .brand,
 .site-links {
   align-items: center;
-  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
   background: rgba(255, 255, 255, 0.76);
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -124,7 +125,8 @@ a:focus-visible,
 
 .download-popout {
   align-items: center;
-  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
   background: rgba(255, 255, 255, 0.76);
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -136,6 +138,7 @@ a:focus-visible,
   transform: translateX(-0.35rem);
   transition: opacity 160ms ease, transform 160ms ease, visibility 160ms ease;
   visibility: hidden;
+  will-change: opacity, transform;
 }
 
 .brand-group:hover .download-popout,
@@ -247,6 +250,7 @@ a:focus-visible,
 }
 
 .rail-track {
+  contain: layout paint style;
   height: 100%;
   min-width: 100vw;
   position: relative;
@@ -300,6 +304,7 @@ a:focus-visible,
 .project-node {
   background: transparent;
   border: 0;
+  contain: layout style;
   cursor: pointer;
   padding: 0;
   position: absolute;
@@ -307,6 +312,7 @@ a:focus-visible,
   transform: translate(-50%, -50%) scale(var(--node-scale));
   transform-origin: 50% 84%;
   transition: opacity 220ms ease, transform 220ms ease;
+  will-change: opacity, transform;
 }
 
 .project-node.is-active {
@@ -369,6 +375,7 @@ a:focus-visible,
   display: block;
   overflow: hidden;
   position: relative;
+  transform: translateZ(0);
 }
 
 .device-shell.phone {
@@ -670,16 +677,22 @@ a:focus-visible,
   z-index: 6;
 }
 
+.project-node.is-active.is-confidential-project {
+  touch-action: pan-x pinch-zoom;
+  user-select: none;
+}
+
 .project-sheet {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  left: var(--label-x, 50%);
+  left: 0;
   overflow: visible;
   padding: 0;
   position: fixed;
   text-align: center;
-  top: var(--label-y, 62%);
-  transform: translate(-50%, 0);
+  top: 0;
+  transform: translate3d(var(--label-x, 50vw), var(--label-y, 62vh), 0) translateX(-50%);
+  will-change: transform;
   width: min(33rem, calc(100vw - 2rem));
   z-index: 15;
 }
@@ -742,19 +755,48 @@ a:focus-visible,
   }
 }
 
-@media (max-width: 430px) {
-  .site-links {
-    display: none;
+@media (max-width: 700px) {
+  .site-header {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.42rem 0.55rem;
+    padding: max(0.72rem, env(safe-area-inset-top)) 0.84rem 0.55rem;
   }
 
   .brand-group {
-    max-width: calc(100vw - 2rem);
+    max-width: calc(100vw - 1.68rem);
+  }
+
+  .brand {
+    min-height: 2.42rem;
+    max-width: 100%;
+  }
+
+  .brand span:last-child {
+    max-width: 9.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .site-links {
+    margin-left: auto;
+    max-width: calc(100vw - 1.68rem);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    padding: 0.14rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .site-links::-webkit-scrollbar {
+    display: none;
   }
 
   .download-popout {
     position: absolute;
     top: calc(100% + 0.38rem);
-    transform: translateY(-0.2rem);
+    transform: translateY(-0.18rem);
   }
 
   .brand-group:hover .download-popout,
@@ -763,22 +805,71 @@ a:focus-visible,
     transform: translateY(0);
   }
 
-  .rail-viewport {
-    bottom: 0;
+  .download-popout a,
+  .site-links a {
+    min-height: 2.26rem;
+    padding: 0.59rem 0.64rem;
+  }
+
+  .rail-path {
+    opacity: 0.68;
+    stroke-width: 1.05;
+  }
+
+  .device-shell {
+    box-shadow: 0 11px 28px rgba(17, 17, 17, 0.085);
   }
 
   .device-shell.phone {
-    height: 11.2rem;
-    width: 6.35rem;
+    height: 11.45rem;
+    width: 6.52rem;
   }
 
   .device-shell.laptop {
-    height: 7.15rem;
-    width: 11.55rem;
+    height: 7.25rem;
+    width: 11.75rem;
+  }
+
+  .confidential-overlay {
+    font-size: 0.68rem;
+    min-height: 1.68rem;
+    padding: 0.32rem 0.54rem;
   }
 
   .project-sheet {
-    width: min(23rem, calc(100vw - 2rem));
+    width: min(22rem, calc(100vw - 1.5rem));
+  }
+
+  .sheet-kicker {
+    font-size: 0.72rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .project-sheet h2 {
+    font-size: clamp(1.34rem, 5.35vw, 1.86rem);
+    line-height: 1.05;
+  }
+}
+
+@media (max-width: 380px) {
+  .brand span:last-child {
+    max-width: 8rem;
+  }
+
+  .download-popout a,
+  .site-links a {
+    font-size: 0.72rem;
+    padding-inline: 0.56rem;
+  }
+
+  .device-shell.phone {
+    height: 10.85rem;
+    width: 6.18rem;
+  }
+
+  .device-shell.laptop {
+    height: 6.9rem;
+    width: 11.1rem;
   }
 }
 
