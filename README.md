@@ -1,6 +1,6 @@
 # Matt Reynolds Portfolio
 
-A static, mobile-first software design portfolio centered on a horizontal project rail. The page is intentionally quiet: one focused node, adjacent work fading away, and only the company, dates, and project title visible.
+Static portfolio rebuild using the reference structure: fixed identity header, horizontal project timeline, project details, About overlay, and sparse footer links.
 
 ## Stack
 
@@ -8,61 +8,25 @@ A static, mobile-first software design portfolio centered on a horizontal projec
 - Plain CSS
 - Vanilla JavaScript
 - No build step
-- Local assets only
-- Vercel Web Analytics
+- Neutral CSS media placeholders until the image/video pass
 
 ## Files
 
 ```text
-index.html          page structure, metadata, analytics snippet
-style.css           rail, device frames, responsive layout, Konami states
-script.js           project data, rail geometry, keyboard/scroll interaction
-favicon.svg         browser icon
-assets/avatar/      local header avatar
-assets/downloads/   downloadable resume PDF
-assets/favicons/    company favicon assets for project identification
+index.html   page structure, metadata, About copy, links
+style.css    layout, timeline, overlay, cursor
+script.js    canonical project data and interactions
+favicon.svg  browser icon
 ```
 
 ## Interaction
 
-- Initial focus lands on the TikTok confidential GenAI node.
-- Horizontal scroll snap and ArrowLeft/ArrowRight move through the 16-node project sequence.
-- The active project sits on the timeline marker; nearby projects fade to support comparison without clutter.
-- The selected label stays centered on the active node and shows only company, date range, and project name.
-- The header name reveals quiet `Portfolio` and `Resume` download links on hover, focus, or tap. Both currently point to the resume PDF.
-- Typing the Konami code on the TikTok GenAI node replaces `Locked` with progress inputs, locks timeline movement before the left/right commands, shows `Unlocked` on completion, then returns to `Locked` after 5 seconds.
-- On touch devices, the same hidden unlock advances by tapping the active TikTok device frame or screen area 10 times.
-- `?unlock=true` starts the TikTok node in its temporary unlocked state for QA.
-- Tiny haptics use the Web Vibration API where supported; iOS Safari gets a subtle visual tactile pulse because it does not expose web vibration.
-
-## Content Policy
-
-- No invented metrics.
-- No private/confidential product detail.
-- TikTok remains a locked GenAI platform growth teaser until the work can be discussed publicly.
-- Project spacing represents ordered portfolio chronology, not exact employment duration.
-- Visual detail should earn its pixels: no decorative grids, fake depth, noisy animation, or redundant case-study copy.
-
-## Analytics
-
-Vercel Web Analytics is included with the no-build static HTML snippet:
-
-```html
-<script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/insights/script.js"></script>
-```
-
-Web Analytics must also be enabled for the `2026-portfolio` Vercel project.
-
-## Local Preview
-
-```sh
-python3 -m http.server 8766
-```
-
-Then open `http://127.0.0.1:8766/`.
+- Header shows `Matt Reynolds` and `Software Designer`.
+- Header nav shows `About`, `Twitter`, and `TikTok`.
+- Project data lives in one canonical array in `script.js`.
+- The horizontal timeline supports wheel, drag, click/tap, and arrow-key navigation.
+- About opens as a full-screen overlay and includes Email, Twitter, and TikTok links.
+- Media slots are neutral placeholders with one TODO comment for the later image/video pass.
 
 ## Validation
 

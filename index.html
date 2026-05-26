@@ -2,88 +2,101 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <title>Matt Reynolds | Software Designer</title>
-  <meta name="description" content="A quiet, public-safe software design timeline for Matt Reynolds across Boeing, Expedia, Uber, Meta, and TikTok.">
+  <meta name="description" content="AI at TikTok. ex-Meta, Uber, Expedia, Boeing.">
   <meta name="author" content="Matt Reynolds">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#faf9f4">
   <link rel="canonical" href="https://2026-portfolio-lake.vercel.app/">
   <meta property="og:title" content="Matt Reynolds | Software Designer">
-  <meta property="og:description" content="A restrained software and product design rail with public-safe project signals and current GenAI platform work kept intentionally locked.">
+  <meta property="og:description" content="AI at TikTok. ex-Meta, Uber, Expedia, Boeing.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://2026-portfolio-lake.vercel.app/">
   <meta property="og:site_name" content="Matt Reynolds">
   <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@psstmatt">
   <meta name="twitter:title" content="Matt Reynolds | Software Designer">
-  <meta name="twitter:description" content="A quiet horizontal timeline of public-safe software design work.">
+  <meta name="twitter:description" content="AI at TikTok. ex-Meta, Uber, Expedia, Boeing.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <a class="skip-link" href="#project-sheet">Skip to selected project</a>
+  <div class="images-root" id="image-preload" aria-hidden="true"></div>
 
-  <header class="site-header" aria-label="Site header">
-    <div class="brand-group" id="download-prompt-group">
-      <button class="brand" id="download-prompt-button" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="download-links">
-        <span class="brand-mark" aria-hidden="true">
-          <img src="assets/avatar/matt-glitch-avatar.jpeg" alt="">
-        </span>
-        <span>Matt Reynolds</span>
-      </button>
-      <div class="download-popout" id="download-links" aria-label="Downloads">
-        <a href="assets/downloads/matt-reynolds-resume.pdf" download>Portfolio</a>
-        <a href="assets/downloads/matt-reynolds-resume.pdf" download>Resume</a>
-      </div>
-    </div>
-    <nav class="site-links" aria-label="External links">
-      <a href="https://www.linkedin.com/in/psstmatt/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
-        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M6.65 9.15v8.7H3.9v-8.7h2.75Zm.18-2.7a1.58 1.58 0 1 1-3.16 0 1.58 1.58 0 0 1 3.16 0Zm4.4 2.7.09 1.08a3.16 3.16 0 0 1 2.78-1.32c2 0 3.5 1.26 3.53 3.98v4.96h-2.75V13.2c0-1.24-.51-1.95-1.55-1.95-.83 0-1.36.45-1.65 1.08v5.52H8.93v-8.7h2.3Z" />
-        </svg>
-        <span class="sr-only">LinkedIn</span>
-      </a>
-      <a href="https://github.com/psstmatt" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
-        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 3.65a8.5 8.5 0 0 0-2.69 16.56c.43.08.59-.18.59-.41v-1.48c-2.41.52-2.92-1.02-2.92-1.02-.39-1-.96-1.27-.96-1.27-.79-.54.06-.53.06-.53.87.06 1.33.9 1.33.9.78 1.32 2.04.94 2.53.72.08-.56.31-.94.56-1.16-1.93-.22-3.95-.96-3.95-4.26 0-.94.34-1.71.89-2.31-.09-.22-.39-1.1.08-2.28 0 0 .73-.23 2.39.88A8.18 8.18 0 0 1 12 6.7c.72 0 1.44.1 2.11.29 1.65-1.11 2.38-.88 2.38-.88.48 1.18.18 2.06.09 2.28.55.6.88 1.37.88 2.31 0 3.31-2.03 4.04-3.96 4.26.32.27.6.8.6 1.62v3.22c0 .23.15.5.6.41A8.5 8.5 0 0 0 12 3.65Z" />
-        </svg>
-        <span class="sr-only">GitHub</span>
-      </a>
-      <a href="https://www.tiktok.com/@psttmatt" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok">
-        <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M14.2 4.45c.26 2.13 1.45 3.4 3.48 3.54v2.72a6.13 6.13 0 0 1-3.42-1.05v4.9c0 2.46-1.74 4.63-4.48 4.63-2.62 0-4.46-1.8-4.46-4.16 0-2.6 2.13-4.42 5.1-4.12v2.83c-1.36-.43-2.34.25-2.34 1.22 0 .8.65 1.47 1.6 1.47 1.12 0 1.75-.68 1.75-1.94V4.45h2.77Z" />
-        </svg>
-        <span class="sr-only">TikTok</span>
-      </a>
-    </nav>
-  </header>
-
-  <main id="top">
-    <section class="timeline-world" aria-labelledby="world-title">
-      <h1 class="sr-only" id="world-title">Matt Reynolds software design portfolio</h1>
-
-      <div class="rail-viewport" id="rail-viewport" tabindex="0" aria-label="Horizontal project timeline. Use arrow keys or scroll horizontally.">
-        <div class="rail-track" id="rail-track">
-          <svg class="rail-svg" id="rail-svg" aria-hidden="true"></svg>
-          <div class="project-nodes" id="project-nodes"></div>
-        </div>
-      </div>
-
-      <section class="project-sheet" id="project-sheet" aria-live="polite" aria-labelledby="sheet-title">
-        <div class="sheet-main">
-          <div class="sheet-title-group">
-            <p class="sheet-kicker" id="sheet-kicker">Meta / May 2022-April 2024</p>
-            <h2 id="sheet-title">Meta AI app</h2>
+  <header class="header-root" aria-label="Site header">
+    <div class="grid">
+      <div class="grid-content">
+        <div class="timeline-header">
+          <div class="header">
+            <div class="header-title-container">
+              <a class="header-title" href="#top" aria-label="Matt Reynolds home">Matt Reynolds</a>
+              <div class="header-date">Software Designer</div>
+            </div>
+            <nav class="header-nav" aria-label="Primary links">
+              <div class="header-nav-inner">
+                <button class="header-nav-item" type="button" data-action="about">About</button>
+                <a class="header-nav-item" href="https://x.com/psstmatt" target="_blank" rel="noopener noreferrer">Twitter</a>
+                <a class="header-nav-item" href="https://www.tiktok.com/@psttmatt" target="_blank" rel="noopener noreferrer">TikTok</a>
+              </div>
+            </nav>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </header>
+
+  <main class="gallery-root" id="top" aria-label="Project timeline">
+    <section class="timeline-grid grid" aria-labelledby="timeline-title">
+      <h1 id="timeline-title" class="sr-only">Matt Reynolds software design portfolio</h1>
+      <div class="timeline-viewport" id="timeline-viewport" tabindex="0" aria-label="Horizontal project timeline">
+        <div class="timeline-track" id="timeline-track"></div>
+      </div>
     </section>
   </main>
 
-  <script>
-    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-  </script>
-  <script defer src="/_vercel/insights/script.js"></script>
+  <aside class="about-root" id="about-panel" aria-hidden="true" aria-labelledby="about-title">
+    <div class="about-background"></div>
+    <div class="grid">
+      <div class="grid-content">
+        <div class="about-container">
+          <div class="about-scrollable">
+            <div class="about-inner">
+              <div class="about-text">
+                <div class="about-bio">
+                  <h2 class="sr-only" id="about-title">About Matt Reynolds</h2>
+                  <p>Matt Reynolds is a software designer based in Seattle, Washington. His work can be seen in products from TikTok, Meta, Expedia, Boeing, and various startups across the Pacific Northwest. He is currently working on AI at TikTok. Outside of design, Matt is passionate about science fiction films, mouth-numbing hot sauce, and being a husband and dad.</p>
+                  <div class="about-links">
+                    <div class="about-links-inner">
+                      <a class="about-link" href="mailto:mr@hey.com?subject=Hey%20Matt%2C%20I%20clicked%20the%20email%20link%20on%20your%20website%20to%20chat%20about...">Email</a>
+                      <a class="about-link" href="https://x.com/psstmatt" target="_blank" rel="noopener noreferrer">Twitter</a>
+                      <a class="about-link" href="https://www.tiktok.com/@psttmatt" target="_blank" rel="noopener noreferrer">TikTok</a>
+                    </div>
+                    <div class="about-spacer"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="about-image" aria-hidden="true">
+                <div class="about-placeholder"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <button class="back-button" id="back-button" type="button" aria-label="Back to timeline" hidden>
+    <svg viewBox="0 0 60.08 60.08" aria-hidden="true">
+      <path d="M25.64,58.83L2.56,30.04,25.64,1.25" fill="none" fill-rule="evenodd" stroke-miterlimit="10"></path>
+    </svg>
+  </button>
+
+  <div class="cursor-root" id="cursor" aria-hidden="true">
+    <div class="cursor-transform">
+      <div class="cursor"></div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

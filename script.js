@@ -1,272 +1,140 @@
+const EMAIL_SUBJECT = "Hey Matt, I clicked the email link on your website to chat about...";
+
 const projects = [
   {
-    id: "boeing-social-web",
-    title: "Social web",
-    company: "Boeing",
-    companyLogo: "assets/favicons/boeing.ico",
-    year: "June 2010-January 2016",
-    deviceType: "laptop",
-    previewAsset: "social",
-    accent: "#1f65b7",
-    deviceScale: 0.94,
-    confidential: false
-  },
-  {
-    id: "boeing-search-web",
-    title: "Search web",
-    company: "Boeing",
-    companyLogo: "assets/favicons/boeing.ico",
-    year: "June 2010-January 2016",
-    deviceType: "laptop",
-    previewAsset: "search",
-    accent: "#235b98",
-    deviceScale: 0.92,
-    confidential: false
-  },
-  {
-    id: "boeing-skywalker-app",
-    title: "Skywalker app",
-    company: "Boeing",
-    companyLogo: "assets/favicons/boeing.ico",
-    year: "June 2010-January 2016",
-    deviceType: "phone",
-    previewAsset: "skywalker",
-    accent: "#2a70c8",
-    deviceScale: 0.94,
-    confidential: false
-  },
-  {
-    id: "expedia-list-making",
-    title: "List making web + app",
-    company: "Expedia Group",
-    companyLogo: "assets/favicons/expedia.ico",
-    year: "January 2016-July 2017",
-    deviceType: "phone",
-    previewAsset: "lists",
-    accent: "#b87800",
-    deviceScale: 0.98,
-    confidential: false
-  },
-  {
-    id: "expedia-city-mobile-web",
-    title: "City accelerated mobile web",
-    company: "Expedia Group",
-    companyLogo: "assets/favicons/expedia.ico",
-    year: "January 2016-July 2017",
-    deviceType: "phone",
-    previewAsset: "city",
-    accent: "#9f6a00",
-    deviceScale: 0.94,
-    confidential: false
-  },
-  {
-    id: "expedia-voice-skills",
-    title: "Google Home & Amazon Alexa voice skills",
-    company: "Expedia Group",
-    companyLogo: "assets/favicons/expedia.ico",
-    year: "January 2016-July 2017",
-    deviceType: "phone",
-    previewAsset: "voice",
-    accent: "#8e6000",
-    deviceScale: 0.9,
-    confidential: false
-  },
-  {
-    id: "uber-driver-marketplace",
-    title: "Driver marketplace web",
-    company: "Uber",
-    companyLogo: "assets/favicons/uber.ico",
-    year: "August 2017-July 2022",
-    deviceType: "laptop",
-    previewAsset: "marketplace",
-    accent: "#171717",
-    deviceScale: 0.92,
-    confidential: false
-  },
-  {
-    id: "uber-multi-driver-dispatch",
-    title: "Multi-driver dispatch app",
-    company: "Uber",
-    companyLogo: "assets/favicons/uber.ico",
-    year: "August 2017-July 2022",
-    deviceType: "laptop",
-    previewAsset: "dispatch",
-    accent: "#202020",
-    deviceScale: 0.94,
-    confidential: false
-  },
-  {
-    id: "uber-recruiting-app",
-    title: "Uber recruiting app",
-    company: "Uber",
-    companyLogo: "assets/favicons/uber.ico",
-    year: "August 2017-July 2022",
-    deviceType: "laptop",
-    previewAsset: "recruiting",
-    accent: "#3b3b3b",
-    deviceScale: 0.9,
-    confidential: false
-  },
-  {
-    id: "uber-pool-app",
-    title: "Uber Pool app",
-    company: "Uber",
-    companyLogo: "assets/favicons/uber.ico",
-    year: "August 2017-July 2022",
-    deviceType: "phone",
-    previewAsset: "pool",
-    accent: "#111111",
-    deviceScale: 0.98,
-    confidential: false
-  },
-  {
-    id: "uber-shared-app",
-    title: "Uber Shared app",
-    company: "Uber",
-    companyLogo: "assets/favicons/uber.ico",
-    year: "August 2017-July 2022",
-    deviceType: "phone",
-    previewAsset: "shared",
-    accent: "#2b2b2b",
-    deviceScale: 0.96,
-    confidential: false
-  },
-  {
-    id: "uber-connect-app",
-    title: "Uber Connect app",
-    company: "Uber",
-    companyLogo: "assets/favicons/uber.ico",
-    year: "August 2017-July 2022",
-    deviceType: "phone",
-    previewAsset: "connect",
-    accent: "#111111",
-    deviceScale: 0.98,
-    confidential: false
-  },
-  {
-    id: "meta-privacy-account-center",
-    title: "Privacy Account Center app/web",
-    company: "Meta",
-    companyLogo: "assets/favicons/meta.ico",
-    year: "May 2022-April 2024",
-    deviceType: "laptop",
-    previewAsset: "privacy",
-    accent: "#0668e1",
-    deviceScale: 0.94,
-    confidential: false
-  },
-  {
-    id: "meta-premium-subscription",
-    title: "Meta Premium subscription",
-    company: "Meta",
-    companyLogo: "assets/favicons/meta.ico",
-    year: "May 2022-April 2024",
-    deviceType: "phone",
-    previewAsset: "subscription",
-    accent: "#0a6fd6",
-    deviceScale: 0.96,
-    confidential: false
-  },
-  {
-    id: "meta-ai-app",
-    title: "Meta AI app",
-    company: "Meta",
-    companyLogo: "assets/favicons/meta.ico",
-    year: "May 2022-April 2024",
-    deviceType: "phone",
-    previewAsset: "ai",
-    accent: "#4169e1",
-    deviceScale: 1,
-    confidential: false
-  },
-  {
-    id: "tiktok-confidential-genai",
-    title: "GenAI platform growth",
+    title: "AI Cast",
+    year: "2026",
     company: "TikTok",
-    companyLogo: "assets/favicons/tiktok.ico",
-    year: "May 2024-Present",
-    deviceType: "phone",
-    previewAsset: "confidential",
-    accent: "#d7194a",
-    deviceScale: 0.98,
-    confidential: true
+    platforms: ["iOS", "Android"],
+    media: { type: "phone", width: 196, height: 371 },
+    margin: { left: 0, right: 1.75 }
+  },
+  {
+    title: "Ads Manager",
+    year: "2025",
+    company: "TikTok",
+    platforms: ["Desktop Web"],
+    media: { type: "desktop", width: 646, height: 410 },
+    margin: { left: 1.75, right: 1.75 }
+  },
+  {
+    title: "Symphony Creative Studio",
+    year: "2024",
+    company: "TikTok",
+    platforms: ["Desktop Web"],
+    media: { type: "desktop", width: 606, height: 410 },
+    margin: { left: 1.75, right: 1.75 }
+  },
+  {
+    title: "Ad-Free Subscriptions",
+    year: "2024",
+    company: "Meta",
+    platforms: ["Web", "iOS", "Android"],
+    media: { type: "phone", width: 196, height: 371 },
+    margin: { left: 1.75, right: 1.75 }
+  },
+  {
+    title: "Meta Accounts",
+    year: "2024",
+    company: "Meta",
+    platforms: ["Web", "iOS", "Android"],
+    media: { type: "desktop", width: 530, height: 410 },
+    margin: { left: 1.75, right: 2.5 }
+  },
+  {
+    title: "Group Rides",
+    year: "2022",
+    company: "Uber",
+    platforms: ["Web", "iOS", "Android"],
+    media: { type: "phone", width: 196, height: 371 },
+    margin: { left: 2.5, right: 1.375 }
+  },
+  {
+    title: "Reserve",
+    year: "2021",
+    company: "Uber",
+    platforms: ["iOS", "Android", "Web"],
+    media: { type: "phone", width: 196, height: 371 },
+    margin: { left: 1.375, right: 1.375 }
+  },
+  {
+    title: "Connect",
+    year: "2020",
+    company: "Uber",
+    platforms: ["Web", "iOS", "Android"],
+    media: { type: "phone", width: 196, height: 371 },
+    margin: { left: 1.375, right: 1.375 }
+  },
+  {
+    title: "Multi-driver Dispatch",
+    year: "2019",
+    company: "Uber",
+    platforms: ["iOS", "Android"],
+    media: { type: "desktop", width: 646, height: 420 },
+    margin: { left: 1.375, right: 1.75 }
+  },
+  {
+    title: "Recruiter",
+    year: "2018",
+    company: "Uber",
+    platforms: ["Web", "iOS", "Android"],
+    media: { type: "desktop", width: 500, height: 410 },
+    margin: { left: 1.75, right: 1.75 }
+  },
+  {
+    title: "Fleet Match",
+    year: "2017",
+    company: "Uber",
+    platforms: ["Web"],
+    media: { type: "web", width: 488, height: 336 },
+    margin: { left: 1.75, right: 3.75 }
+  },
+  {
+    title: "Accelerated Mobile Pages",
+    year: "2017",
+    company: "Expedia",
+    platforms: ["Web"],
+    media: { type: "phone", width: 196, height: 371 },
+    margin: { left: 3.75, right: 1.75 }
+  },
+  {
+    title: "Scratchpad",
+    year: "2016",
+    company: "Expedia",
+    platforms: ["Web", "iOS", "Android"],
+    media: { type: "phone", width: 196, height: 371 },
+    margin: { left: 1.75, right: 4 }
+  },
+  {
+    title: "Skywalker",
+    year: "2015",
+    company: "Boeing",
+    platforms: ["Web", "Windows"],
+    media: { type: "desktop", width: 646, height: 420 },
+    margin: { left: 4, right: 1.75 }
+  },
+  {
+    title: "Search",
+    year: "2014",
+    company: "Boeing",
+    platforms: ["Web"],
+    media: { type: "desktop", width: 500, height: 410 },
+    margin: { left: 1.75, right: 0 }
   }
 ];
 
-const KONAMI_SEQUENCE = [
-  { key: "ArrowUp", label: "↑" },
-  { key: "ArrowUp", label: "↑" },
-  { key: "ArrowDown", label: "↓" },
-  { key: "ArrowDown", label: "↓" },
-  { key: "ArrowLeft", label: "←" },
-  { key: "ArrowRight", label: "→" },
-  { key: "ArrowLeft", label: "←" },
-  { key: "ArrowRight", label: "→" },
-  { key: "b", label: "B" },
-  { key: "a", label: "A" }
-];
+const timelineViewport = document.querySelector("#timeline-viewport");
+const timelineTrack = document.querySelector("#timeline-track");
+const aboutPanel = document.querySelector("#about-panel");
+const backButton = document.querySelector("#back-button");
+const cursorRoot = document.querySelector("#cursor");
+const aboutButton = document.querySelector("[data-action='about']");
 
-const MOBILE_UNLOCK_SEQUENCE = [
-  { gesture: "tap", label: "↑" },
-  { gesture: "tap", label: "↑" },
-  { gesture: "tap", label: "↓" },
-  { gesture: "tap", label: "↓" },
-  { gesture: "tap", label: "←" },
-  { gesture: "tap", label: "→" },
-  { gesture: "tap", label: "←" },
-  { gesture: "tap", label: "→" },
-  { gesture: "tap", label: "•" },
-  { gesture: "tap", label: "•" }
-];
-
-const KONAMI_INPUT_RESET_DELAY = 4200;
-const KONAMI_UNLOCK_RESET_DELAY = 5000;
-const SECRET_TAP_DISTANCE = 14;
-const SECRET_TAP_DURATION = 420;
-
-const state = {
-  activeIndex: 0,
-  konamiIndex: 0,
-  konamiUnlocked: false,
-  konamiViewportLocked: false,
-  secretInputMode: "keyboard",
-  hasInitialized: false,
-  points: [],
-  trackWidth: 0,
-  worldHeight: 0
-};
-
-const railViewport = document.querySelector("#rail-viewport");
-const railTrack = document.querySelector("#rail-track");
-const railSvg = document.querySelector("#rail-svg");
-const projectNodes = document.querySelector("#project-nodes");
-const downloadPromptGroup = document.querySelector("#download-prompt-group");
-const downloadPromptButton = document.querySelector("#download-prompt-button");
-const projectSheet = document.querySelector("#project-sheet");
-const sheetKicker = document.querySelector("#sheet-kicker");
-const sheetTitle = document.querySelector("#sheet-title");
-const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-const coarsePointerQuery = window.matchMedia("(pointer: coarse)");
-let prefersReducedMotion = reducedMotionQuery.matches;
-
+let activeIndex = 0;
 let scrollTimer;
-let scrollFrame;
-let resizeTimer;
-let suppressScrollUntil = 0;
-let konamiInputResetTimer;
-let konamiUnlockResetTimer;
-let secretPointerStart;
-let suppressNextNodeClickUntil = 0;
-let feedbackTimer;
-
-reducedMotionQuery.addEventListener?.("change", (event) => {
-  prefersReducedMotion = event.matches;
-  renderRail();
-});
-
-function clamp(value, min, max) {
-  return Math.min(Math.max(value, min), max);
-}
+let isPointerDown = false;
+let dragStartX = 0;
+let dragStartScrollLeft = 0;
 
 function escapeHtml(value) {
   return String(value)
@@ -276,687 +144,226 @@ function escapeHtml(value) {
     .replace(/"/g, "&quot;");
 }
 
-function canUseHaptics() {
-  return !prefersReducedMotion && coarsePointerQuery.matches && "vibrate" in navigator;
+function playIcon() {
+  return `
+    <svg viewBox="0 0 68 68" aria-hidden="true">
+      <g fill-rule="evenodd">
+        <circle cx="34" cy="34" r="32.8"></circle>
+        <g transform="translate(27 23)">
+          <polygon transform="translate(8.5 11) rotate(-270) translate(-8.5 -11)" points="8.5 2.5 19.5 19.5 -2.5 19.5"></polygon>
+        </g>
+      </g>
+    </svg>
+  `;
 }
 
-function pulseHaptic(type = "tick", target) {
-  const patterns = {
-    tick: 5,
-    snap: 7,
-    tap: 4,
-    confirm: [8, 24, 10],
-    unlock: [12, 34, 18]
-  };
-
-  if (canUseHaptics()) {
-    navigator.vibrate(patterns[type] || patterns.tick);
-    return;
-  }
-
-  pulseVisualFeedback(type, target);
-}
-
-function pulseVisualFeedback(type, target) {
-  if (prefersReducedMotion || !coarsePointerQuery.matches) return;
-
-  const element = getFeedbackElement(target);
-  if (!element) return;
-
-  window.clearTimeout(feedbackTimer);
-  element.classList.remove("is-tactile-feedback", "is-unlock-feedback");
-
-  window.requestAnimationFrame(() => {
-    element.classList.add(type === "unlock" ? "is-unlock-feedback" : "is-tactile-feedback");
-    feedbackTimer = window.setTimeout(() => {
-      element.classList.remove("is-tactile-feedback", "is-unlock-feedback");
-    }, type === "unlock" ? 360 : 190);
-  });
-}
-
-function getFeedbackElement(target) {
-  if (target instanceof Element) {
-    return target.closest(".device-shell") || target;
-  }
-
-  return document.querySelector(".project-node.is-active .device-shell");
-}
-
-function getRailMetrics() {
-  const viewportWidth = railViewport.clientWidth || window.innerWidth;
-  const viewportHeight = railViewport.clientHeight || Math.round(window.innerHeight * 0.62);
-  const spacing = clamp(viewportWidth * 0.72, 258, 382);
-  const sidePad = viewportWidth / 2;
-  const isMobile = viewportWidth <= 700;
-  const baseline = isMobile
-    ? clamp(viewportHeight * 0.62, 292, 414)
-    : clamp(viewportHeight * 0.66, 306, 440);
-  const lift = isMobile
-    ? clamp(viewportHeight * 0.23, 108, 132)
-    : clamp(viewportHeight * 0.24, 110, 136);
-  const trackWidth = sidePad * 2 + spacing * (projects.length - 1);
-
-  return { viewportWidth, viewportHeight, spacing, sidePad, baseline, lift, trackWidth };
-}
-
-function renderPreview(project) {
-  const line = (size = "medium") => `<span class="mock-line ${size}"></span>`;
-  const rows = (count = 3) => Array.from({ length: count }, () => "<span class=\"mock-row\"></span>").join("");
-  const cards = (count = 4) => `<span class="mock-grid">${Array.from({ length: count }, () => "<span></span>").join("")}</span>`;
-
-  switch (project.previewAsset) {
-    case "social":
-      return `
-        <span class="mock-panel primary">${line("long")}${line("medium")}</span>
-        <span class="mock-list">${rows(4)}</span>
-      `;
-    case "search":
-      return `
-        <span class="mock-search"></span>
-        <span class="mock-list">${rows(4)}</span>
-      `;
-    case "skywalker":
-      return `
-        <span class="mock-map"></span>
-        <span class="mock-control">${line("long")}${line("short")}</span>
-        <span class="mock-control">${line("medium")}</span>
-      `;
-    case "lists":
-      return `
-        <span class="mock-card primary">${line("medium")}${line("short")}</span>
-        ${cards(4)}
-        <span class="mock-list">${rows(2)}</span>
-      `;
-    case "city":
-      return `
-        <span class="mock-map"></span>
-        <span class="mock-list">${rows(3)}</span>
-      `;
-    case "voice":
-      return `
-        <span class="mock-chat">${line("long")}${line("short")}</span>
-        <span class="mock-chat answer">${line("medium")}</span>
-        <span class="mock-chat">${line("long")}${line("medium")}</span>
-      `;
-    case "marketplace":
-      return `
-        <span class="mock-map"></span>
-        <span class="mock-list">${rows(4)}</span>
-      `;
-    case "dispatch":
-      return `
-        <span class="mock-map"></span>
-        <span class="mock-list">${rows(5)}</span>
-      `;
-    case "recruiting":
-      return `
-        <span class="mock-list">${rows(4)}</span>
-        <span class="mock-panel primary">${line("long")}${line("medium")}${line("short")}</span>
-      `;
-    case "pool":
-    case "shared":
-    case "connect":
-      return `
-        <span class="mock-map"></span>
-        <span class="mock-card primary">${line("long")}${line("short")}</span>
-        <span class="mock-list">${rows(2)}</span>
-      `;
-    case "privacy":
-      return `
-        <span class="mock-control">${line("medium")}</span>
-        <span class="mock-control">${line("long")}</span>
-        <span class="mock-control">${line("short")}</span>
-        <span class="mock-list">${rows(2)}</span>
-      `;
-    case "subscription":
-      return `
-        <span class="mock-card primary">${line("medium")}${line("short")}</span>
-        <span class="mock-control">${line("long")}</span>
-        <span class="mock-control">${line("medium")}</span>
-      `;
-    case "ai":
-      return `
-        <span class="mock-chat">${line("medium")}</span>
-        <span class="mock-chat answer">${line("long")}${line("medium")}</span>
-        ${cards(4)}
-      `;
-    case "confidential":
-      return `
-        <span class="mock-lock-card" aria-hidden="true"></span>
-      `;
-    default:
-      return `
-        <span class="mock-panel primary">${line("long")}${line("medium")}</span>
-        <span class="mock-list">${rows(3)}</span>
-      `;
-  }
-}
-
-function renderMock(project) {
-  const confidentialClass = project.confidential ? " is-confidential" : "";
-  const unlockedClass = project.confidential && state.konamiUnlocked ? " is-konami-unlocked" : "";
-  const lockOverlay = project.confidential ? "<span class=\"confidential-overlay\" aria-hidden=\"true\"><span class=\"confidential-status\">Locked</span></span>" : "";
+function renderProject(project, index) {
+  const platformMarkup = project.platforms
+    .map((platform) => `<span>${escapeHtml(platform)}</span>`)
+    .join("");
 
   return `
-    <span class="logo-chip" aria-hidden="true">
-      <img src="${escapeHtml(project.companyLogo)}" alt="" decoding="async">
-    </span>
-    <span class="device-shell ${escapeHtml(project.deviceType)}${confidentialClass}${unlockedClass}">
-      <span class="device-screen">
-        <span class="mock-ui mock-${escapeHtml(project.previewAsset)}">
-          ${renderPreview(project)}
-        </span>
-      </span>
-      ${lockOverlay}
-    </span>
+    <article
+      class="project"
+      data-index="${index}"
+      style="
+        --media-width: ${project.media.width}px;
+        --media-height: ${project.media.height}px;
+        --mobile-media-width: ${Math.round(project.media.width * 0.72)}px;
+        --mobile-media-height: ${Math.round(Math.min(project.media.height, 340) * 0.72)}px;
+        --margin-left: ${project.margin.left}em;
+        --margin-right: ${project.margin.right}em;
+        --z-index: ${projects.length - index};
+      "
+    >
+      <div class="project-inner">
+        <div class="gallery-content-container">
+          <div class="gallery-content">
+            <div class="gallery-columns">
+              <div class="gallery-column">
+                <h2 class="gallery-title">${escapeHtml(project.title)}</h2>
+                <h3 class="gallery-subtitle">
+                  <span>Software Design</span>
+                  <span>${escapeHtml(project.company)}</span>
+                  <span class="gallery-date">${escapeHtml(project.year)}</span>
+                </h3>
+                <span class="gallery-play">${playIcon()}</span>
+              </div>
+              <div class="gallery-column">
+                <h4 class="gallery-team">0</h4>
+                <div class="gallery-text">${platformMarkup}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="project-media" type="button" aria-label="Show ${escapeHtml(project.title)}" data-index="${index}">
+          <span class="media-placeholder ${escapeHtml(project.media.type)}" data-company="${escapeHtml(project.company)}"></span>
+        </button>
+      </div>
+    </article>
   `;
 }
 
-function renderNodes() {
-  projectNodes.innerHTML = projects.map((project, index) => {
-    const point = state.points[index];
-    return `
-      <button
-        class="project-node${project.confidential ? " is-confidential-project" : ""}"
-        type="button"
-        data-index="${index}"
-        data-project-id="${escapeHtml(project.id)}"
-        aria-label="Show ${escapeHtml(project.title)}"
-        style="
-          left: ${point.x}px;
-          top: ${point.artifactY}px;
-          --node-scale: ${project.deviceScale};
-          --project-color: ${project.accent};
-        "
-      >
-        ${renderMock(project)}
-      </button>
-    `;
-  }).join("");
+function renderProjects() {
+  // TODO: Replace neutral placeholders with approved project images/video in the media pass.
+  timelineTrack.innerHTML = projects.map(renderProject).join("");
+  updateActiveProject(0, false);
+}
 
-  projectNodes.querySelectorAll(".project-node").forEach((node) => {
-    node.addEventListener("click", () => {
-      if (performance.now() < suppressNextNodeClickUntil) return;
-      pulseHaptic("tap", node);
-      setActiveProject(Number(node.dataset.index), true);
-    });
-    node.addEventListener("pointerdown", handleSecretPointerDown);
-    node.addEventListener("pointerup", handleSecretPointerUp);
-    node.addEventListener("pointercancel", clearSecretPointer);
+function projectElements() {
+  return Array.from(timelineTrack.querySelectorAll(".project"));
+}
+
+function updateActiveProject(index, shouldScroll = true) {
+  const nextIndex = Math.max(0, Math.min(projects.length - 1, index));
+  activeIndex = nextIndex;
+
+  projectElements().forEach((project, projectIndex) => {
+    project.classList.toggle("is-active", projectIndex === activeIndex);
   });
 
-  updateKonamiOverlay();
-}
+  if (!shouldScroll) return;
 
-function konamiProgressMarkup() {
-  const sequence = getSecretSequence(state.secretInputMode);
-  const keys = sequence.map((step, index) => {
-    const className = [
-      "konami-key",
-      index < state.konamiIndex ? "is-entered" : "",
-      index === state.konamiIndex ? "is-current" : ""
-    ].filter(Boolean).join(" ");
+  const media = timelineTrack.querySelector(`.project-media[data-index="${activeIndex}"]`);
+  if (!media) return;
 
-    return `<span class="${className}">${escapeHtml(step.label)}</span>`;
-  }).join("");
+  const viewportRect = timelineViewport.getBoundingClientRect();
+  const mediaRect = media.getBoundingClientRect();
+  const centeredLeft = timelineViewport.scrollLeft + mediaRect.left - viewportRect.left - (viewportRect.width - mediaRect.width) / 2;
 
-  return `<span class="konami-code">${keys}</span>`;
-}
-
-function getSecretSequence(mode) {
-  return mode === "gesture" ? MOBILE_UNLOCK_SEQUENCE : KONAMI_SEQUENCE;
-}
-
-function getSecretInput(step, mode) {
-  return mode === "gesture" ? step.gesture : step.key;
-}
-
-function updateKonamiOverlay() {
-  const confidentialNodes = Array.from(document.querySelectorAll(".project-node.is-confidential-project"));
-
-  confidentialNodes.forEach((node) => {
-    const overlay = node.querySelector(".confidential-overlay");
-    const shell = node.querySelector(".device-shell");
-    if (!overlay || !shell) return;
-
-    const isProgress = state.konamiIndex > 0 && !state.konamiUnlocked;
-    overlay.classList.toggle("is-progress", isProgress);
-    overlay.classList.toggle("is-unlocked", state.konamiUnlocked);
-    shell.classList.toggle("is-konami-unlocked", state.konamiUnlocked);
-    node.classList.toggle("is-konami-locked", state.konamiViewportLocked);
-
-    if (state.konamiUnlocked) {
-      overlay.innerHTML = "<span class=\"confidential-status\">Unlocked</span>";
-      return;
-    }
-
-    overlay.innerHTML = isProgress
-      ? konamiProgressMarkup()
-      : "<span class=\"confidential-status\">Locked</span>";
+  timelineViewport.scrollTo({
+    left: centeredLeft,
+    behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
   });
 }
 
-function setKonamiViewportLock(isLocked) {
-  state.konamiViewportLocked = isLocked;
-  railViewport.classList.toggle("is-konami-locked", isLocked);
-  updateKonamiOverlay();
-
-  if (!isLocked) return;
-
-  suppressScrollUntil = performance.now() + KONAMI_INPUT_RESET_DELAY;
-  if (state.secretInputMode === "keyboard") {
-    const activeNode = document.querySelector(".project-node.is-active.is-confidential-project");
-    activeNode?.focus({ preventScroll: true });
-  }
-}
-
-function resetKonamiProgress() {
-  window.clearTimeout(konamiInputResetTimer);
-  state.konamiIndex = 0;
-  state.secretInputMode = "keyboard";
-  setKonamiViewportLock(false);
-  updateKonamiOverlay();
-}
-
-function resetKonamiLock() {
-  window.clearTimeout(konamiInputResetTimer);
-  window.clearTimeout(konamiUnlockResetTimer);
-  state.konamiUnlocked = false;
-  state.konamiIndex = 0;
-  state.secretInputMode = "keyboard";
-  setKonamiViewportLock(false);
-  updateKonamiOverlay();
-}
-
-function scheduleKonamiInputReset() {
-  window.clearTimeout(konamiInputResetTimer);
-  if (state.konamiUnlocked) return;
-  konamiInputResetTimer = window.setTimeout(resetKonamiProgress, KONAMI_INPUT_RESET_DELAY);
-}
-
-function scheduleKonamiLockReset() {
-  window.clearTimeout(konamiInputResetTimer);
-  window.clearTimeout(konamiUnlockResetTimer);
-  konamiUnlockResetTimer = window.setTimeout(resetKonamiLock, KONAMI_UNLOCK_RESET_DELAY);
-}
-
-function completeSecretUnlock({ haptic = true } = {}) {
-  window.clearTimeout(konamiInputResetTimer);
-  state.konamiUnlocked = true;
-  state.konamiIndex = getSecretSequence(state.secretInputMode).length;
-  setKonamiViewportLock(false);
-  updateKonamiOverlay();
-  if (haptic) pulseHaptic("unlock");
-  scheduleKonamiLockReset();
-  return { handled: true, advanced: true, completed: true };
-}
-
-function normalizeKonamiKey(event) {
-  if (event.key.startsWith("Arrow")) return event.key;
-  const key = event.key.toLowerCase();
-  return key === "a" || key === "b" ? key : "";
-}
-
-function applySecretInput(input, mode) {
-  const activeProject = projects[state.activeIndex];
-  const sequence = getSecretSequence(mode);
-  const firstInput = getSecretInput(sequence[0], mode);
-
-  if (state.konamiUnlocked) {
-    if (input === firstInput && activeProject?.confidential) {
-      window.clearTimeout(konamiUnlockResetTimer);
-      state.konamiUnlocked = false;
-      state.konamiIndex = 0;
-      state.secretInputMode = mode;
-    } else {
-      return { handled: false, advanced: false, completed: false };
-    }
-  }
-
-  if (!input) {
-    if (state.konamiIndex > 0 && state.secretInputMode === mode) resetKonamiProgress();
-    return { handled: false, advanced: false, completed: false };
-  }
-
-  const sequenceActive = state.konamiIndex > 0 && state.secretInputMode === mode;
-  const canStart = activeProject?.confidential && input === firstInput;
-
-  if (!sequenceActive && !canStart) {
-    if (state.konamiIndex > 0 && state.secretInputMode === mode) resetKonamiProgress();
-    return { handled: false, advanced: false, completed: false };
-  }
-
-  if (!sequenceActive) {
-    state.secretInputMode = mode;
-    setKonamiViewportLock(true);
-  }
-
-  const expectedInput = getSecretInput(sequence[state.konamiIndex], mode);
-  if (input === expectedInput) {
-    state.secretInputMode = mode;
-    state.konamiIndex += 1;
-
-    if (state.konamiIndex >= sequence.length) {
-      return completeSecretUnlock({ haptic: mode === "gesture" });
-    }
-
-    setKonamiViewportLock(true);
-    updateKonamiOverlay();
-    scheduleKonamiInputReset();
-    if (mode === "gesture") pulseHaptic("tick");
-    return { handled: true, advanced: true, completed: false };
-  }
-
-  if (input === firstInput) {
-    state.secretInputMode = mode;
-    state.konamiIndex = 1;
-    setKonamiViewportLock(true);
-    updateKonamiOverlay();
-    scheduleKonamiInputReset();
-    if (mode === "gesture") pulseHaptic("tick");
-    return { handled: true, advanced: true, completed: false };
-  }
-
-  resetKonamiProgress();
-  return { handled: true, advanced: false, completed: false };
-}
-
-function handleKonamiKeydown(event) {
-  const target = event.target;
-  const isTyping = target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target?.isContentEditable;
-  if (isTyping) return false;
-
-  const key = normalizeKonamiKey(event);
-  const result = applySecretInput(key, "keyboard");
-  if (!result.handled) return false;
-
-  event.preventDefault();
-  event.stopImmediatePropagation();
-  return true;
-}
-
-function clearSecretPointer() {
-  secretPointerStart = null;
-}
-
-function isActiveSecretNode(node) {
-  return node instanceof Element
-    && node.classList.contains("is-active")
-    && node.classList.contains("is-confidential-project");
-}
-
-function handleSecretPointerDown(event) {
-  const node = event.currentTarget;
-  if (!isActiveSecretNode(node)) return;
-  if (!(event.target instanceof Element) || !event.target.closest(".device-shell")) return;
-  if (event.pointerType === "mouse" && event.button !== 0) return;
-
-  secretPointerStart = {
-    id: event.pointerId,
-    x: event.clientX,
-    y: event.clientY,
-    time: performance.now()
-  };
-}
-
-function isSecretTap(dx, dy, elapsed) {
-  const absX = Math.abs(dx);
-  const absY = Math.abs(dy);
-
-  return elapsed <= SECRET_TAP_DURATION && absX <= SECRET_TAP_DISTANCE && absY <= SECRET_TAP_DISTANCE;
-}
-
-function handleSecretPointerUp(event) {
-  if (!secretPointerStart || secretPointerStart.id !== event.pointerId) return;
-
-  const dx = event.clientX - secretPointerStart.x;
-  const dy = event.clientY - secretPointerStart.y;
-  const elapsed = performance.now() - secretPointerStart.time;
-  const isTap = isSecretTap(dx, dy, elapsed);
-
-  secretPointerStart = null;
-  if (!isTap) return;
-
-  const result = applySecretInput("tap", "gesture");
-  if (!result.handled) return;
-
-  suppressNextNodeClickUntil = performance.now() + 360;
-  event.preventDefault();
-  event.stopPropagation();
-}
-
-function renderRail() {
-  const first = state.points[0];
-  const last = state.points[state.points.length - 1];
-  const active = state.points[state.activeIndex] || first;
-  if (!first || !last || !active) return;
-
-  const railPath = state.points
-    .map((point, index) => `${index === 0 ? "M" : "L"} ${point.x} ${point.y}`)
-    .join(" ");
-  const markerPulse = prefersReducedMotion ? "" : `
-    <circle class="rail-position-halo" cx="${active.x}" cy="${active.y}" r="9">
-      <animate attributeName="r" values="9;18;9" dur="1.8s" repeatCount="indefinite" />
-      <animate attributeName="opacity" values="0.28;0;0.28" dur="1.8s" repeatCount="indefinite" />
-    </circle>
-  `;
-
-  railSvg.setAttribute("viewBox", `0 0 ${state.trackWidth} ${state.worldHeight}`);
-  railSvg.innerHTML = `
-    <path class="rail-path" d="${railPath}" />
-    ${markerPulse}
-    <circle class="rail-position-dot" cx="${active.x}" cy="${active.y}" r="5.5" />
-  `;
-}
-
-function buildGeometry() {
-  const metrics = getRailMetrics();
-  state.trackWidth = metrics.trackWidth;
-  state.worldHeight = metrics.viewportHeight;
-  railTrack.style.width = `${metrics.trackWidth}px`;
-
-  state.points = projects.map((project, index) => {
-    const x = metrics.sidePad + metrics.spacing * index;
-    const y = metrics.baseline;
-    const artifactY = y - metrics.lift;
-    return { x, y, artifactY };
-  });
-
-  renderRail();
-  renderNodes();
-  syncActiveClasses();
-  updateProjectLabelPosition();
-}
-
-function updateProjectLabelPosition() {
-  const point = state.points[state.activeIndex];
-  if (!point || !projectSheet) return;
-
-  const x = point.x - railViewport.scrollLeft;
-  const y = point.y + 36;
-
-  projectSheet.style.setProperty("--label-x", `${x}px`);
-  projectSheet.style.setProperty("--label-y", `${y}px`);
-}
-
-function requestProjectLabelPositionUpdate() {
-  if (scrollFrame) return;
-
-  scrollFrame = window.requestAnimationFrame(() => {
-    scrollFrame = 0;
-    updateProjectLabelPosition();
-  });
-}
-
-function syncActiveClasses() {
-  const nodes = Array.from(document.querySelectorAll(".project-node"));
-
-  nodes.forEach((node, index) => {
-    const distance = Math.abs(index - state.activeIndex);
-    node.classList.toggle("is-active", distance === 0);
-    node.classList.toggle("is-near", distance === 1);
-    node.classList.toggle("is-far", distance > 1);
-    node.setAttribute("aria-current", distance === 0 ? "true" : "false");
-  });
-}
-
-function setDownloadLinksOpen(isOpen) {
-  downloadPromptGroup?.classList.toggle("is-open", isOpen);
-  downloadPromptButton?.setAttribute("aria-expanded", isOpen ? "true" : "false");
-}
-
-function setActiveProject(index, shouldScroll = false) {
-  const previousIndex = state.activeIndex;
-  state.activeIndex = (index + projects.length) % projects.length;
-  const project = projects[state.activeIndex];
-  const point = state.points[state.activeIndex];
-  const didChange = previousIndex !== state.activeIndex;
-
-  document.documentElement.style.setProperty("--active-accent", project.accent);
-  sheetKicker.textContent = `${project.company} / ${project.year}`;
-  sheetTitle.textContent = project.title;
-
-  if (!project.confidential && state.konamiIndex > 0 && !state.konamiUnlocked) {
-    resetKonamiProgress();
-  }
-
-  renderRail();
-  syncActiveClasses();
-  updateProjectLabelPosition();
-  updateKonamiOverlay();
-
-  if (state.hasInitialized && didChange) {
-    pulseHaptic(shouldScroll ? "tap" : "snap");
-  }
-
-  if (shouldScroll && point) {
-    const scrollLeft = point.x - railViewport.clientWidth / 2;
-    suppressScrollUntil = performance.now() + 700;
-    railViewport.scrollTo({
-      left: scrollLeft,
-      behavior: prefersReducedMotion ? "auto" : "smooth"
-    });
-  }
-}
-
-function getCenteredIndex() {
-  const viewportCenter = railViewport.scrollLeft + railViewport.clientWidth / 2;
-  let closestIndex = state.activeIndex;
+function updateActiveFromScroll() {
+  const viewportRect = timelineViewport.getBoundingClientRect();
+  const viewportCenter = viewportRect.left + viewportRect.width / 2;
+  let closestIndex = activeIndex;
   let closestDistance = Infinity;
 
-  state.points.forEach((point, index) => {
-    const distance = Math.abs(point.x - viewportCenter);
+  timelineTrack.querySelectorAll(".project-media").forEach((media) => {
+    const rect = media.getBoundingClientRect();
+    const center = rect.left + rect.width / 2;
+    const distance = Math.abs(center - viewportCenter);
     if (distance < closestDistance) {
       closestDistance = distance;
-      closestIndex = index;
+      closestIndex = Number(media.dataset.index);
     }
   });
 
-  return closestIndex;
+  updateActiveProject(closestIndex, false);
 }
 
-railViewport.addEventListener("scroll", () => {
-  requestProjectLabelPositionUpdate();
+function openAbout() {
+  aboutPanel.classList.add("is-open");
+  aboutPanel.setAttribute("aria-hidden", "false");
+  backButton.hidden = false;
+  requestAnimationFrame(() => backButton.classList.add("is-visible"));
+}
 
-  if (state.konamiViewportLocked) {
-    suppressScrollUntil = performance.now() + 220;
-    return;
+function closeAbout() {
+  aboutPanel.classList.remove("is-open");
+  aboutPanel.setAttribute("aria-hidden", "true");
+  backButton.classList.remove("is-visible");
+  window.setTimeout(() => {
+    if (!aboutPanel.classList.contains("is-open")) backButton.hidden = true;
+  }, 230);
+}
+
+function handleTimelineWheel(event) {
+  if (aboutPanel.classList.contains("is-open")) return;
+
+  const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+  if (!delta) return;
+
+  timelineViewport.scrollLeft += delta;
+  event.preventDefault();
+}
+
+function handlePointerDown(event) {
+  isPointerDown = true;
+  dragStartX = event.clientX;
+  dragStartScrollLeft = timelineViewport.scrollLeft;
+  timelineViewport.setPointerCapture?.(event.pointerId);
+}
+
+function handlePointerMove(event) {
+  if (!isPointerDown) return;
+  const delta = dragStartX - event.clientX;
+  timelineViewport.scrollLeft = dragStartScrollLeft + delta;
+}
+
+function handlePointerUp(event) {
+  if (!isPointerDown) return;
+  isPointerDown = false;
+  timelineViewport.releasePointerCapture?.(event.pointerId);
+  updateActiveFromScroll();
+}
+
+function updateCursor(event) {
+  if (!cursorRoot) return;
+  cursorRoot.style.transform = `translate3d(${event.clientX - 25}px, ${event.clientY - 25}px, 0)`;
+  cursorRoot.classList.add("is-visible");
+
+  const target = event.target instanceof Element ? event.target.closest("a, button") : null;
+  cursorRoot.classList.toggle("is-small", Boolean(target));
+  document.body.classList.remove("cursor-visible");
+}
+
+document.querySelectorAll(".about-link").forEach((link) => {
+  if (link.href.startsWith("mailto:")) {
+    link.href = `mailto:mr@hey.com?subject=${encodeURIComponent(EMAIL_SUBJECT)}`;
   }
+});
 
-  if (performance.now() < suppressScrollUntil) {
-    return;
-  }
+renderProjects();
 
+timelineTrack.addEventListener("click", (event) => {
+  const media = event.target instanceof Element ? event.target.closest(".project-media") : null;
+  if (!media) return;
+  updateActiveProject(Number(media.dataset.index), true);
+});
+
+timelineViewport.addEventListener("scroll", () => {
   window.clearTimeout(scrollTimer);
-  scrollTimer = window.setTimeout(() => {
-    const centeredIndex = getCenteredIndex();
-    if (centeredIndex !== state.activeIndex) {
-      setActiveProject(centeredIndex, false);
-    }
-  }, 80);
+  scrollTimer = window.setTimeout(updateActiveFromScroll, 70);
 }, { passive: true });
 
-document.addEventListener("keydown", handleKonamiKeydown, { capture: true });
+timelineViewport.addEventListener("wheel", handleTimelineWheel, { passive: false });
+timelineViewport.addEventListener("pointerdown", handlePointerDown);
+timelineViewport.addEventListener("pointermove", handlePointerMove);
+timelineViewport.addEventListener("pointerup", handlePointerUp);
+timelineViewport.addEventListener("pointercancel", handlePointerUp);
 
-railViewport.addEventListener("keydown", (event) => {
-  if (state.konamiViewportLocked) return;
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && aboutPanel.classList.contains("is-open")) {
+    closeAbout();
+    return;
+  }
+
+  if (aboutPanel.classList.contains("is-open")) return;
 
   if (event.key === "ArrowRight") {
     event.preventDefault();
-    event.stopPropagation();
-    setActiveProject(state.activeIndex + 1, true);
+    updateActiveProject(activeIndex + 1);
   }
 
   if (event.key === "ArrowLeft") {
     event.preventDefault();
-    event.stopPropagation();
-    setActiveProject(state.activeIndex - 1, true);
+    updateActiveProject(activeIndex - 1);
   }
 });
 
-document.addEventListener("keydown", (event) => {
-  if (state.konamiViewportLocked) return;
+aboutButton?.addEventListener("click", openAbout);
+backButton?.addEventListener("click", closeAbout);
 
-  const target = event.target;
-  const isTyping = target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target?.isContentEditable;
-  if (isTyping) return;
+document.addEventListener("mousemove", updateCursor);
+document.addEventListener("mousedown", () => cursorRoot?.classList.add("is-down"));
+document.addEventListener("mouseup", () => cursorRoot?.classList.remove("is-down"));
+document.addEventListener("mouseleave", () => document.body.classList.add("cursor-visible"));
 
-  if (event.key === "ArrowRight") {
-    setActiveProject(state.activeIndex + 1, true);
-  }
+window.addEventListener("resize", () => updateActiveProject(activeIndex, false));
 
-  if (event.key === "ArrowLeft") {
-    setActiveProject(state.activeIndex - 1, true);
-  }
-});
-
-downloadPromptButton?.addEventListener("click", () => {
-  const shouldOpen = !downloadPromptGroup?.classList.contains("is-open");
-  pulseHaptic(shouldOpen ? "confirm" : "tap", downloadPromptButton);
-  setDownloadLinksOpen(shouldOpen);
-});
-
-document.querySelectorAll(".site-links a, .download-popout a").forEach((link) => {
-  link.addEventListener("click", () => {
-    pulseHaptic("tap", link);
-  }, { passive: true });
-});
-
-document.addEventListener("click", (event) => {
-  const targetElement = event.target instanceof Element ? event.target : null;
-
-  if (downloadPromptGroup?.classList.contains("is-open") && !targetElement?.closest("#download-prompt-group")) {
-    setDownloadLinksOpen(false);
-  }
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && downloadPromptGroup?.classList.contains("is-open")) {
-    setDownloadLinksOpen(false);
-  }
-});
-
-window.addEventListener("resize", () => {
-  window.clearTimeout(resizeTimer);
-  resizeTimer = window.setTimeout(() => {
-    const activeIndex = state.activeIndex;
-    buildGeometry();
-    setActiveProject(activeIndex, true);
-  }, 110);
-});
-
-buildGeometry();
-const initialProjectIndex = projects.findIndex((project) => project.id === "tiktok-confidential-genai");
-setActiveProject(initialProjectIndex >= 0 ? initialProjectIndex : 0, false);
-
-if (new URLSearchParams(window.location.search).get("unlock") === "true" && projects[state.activeIndex]?.confidential) {
-  completeSecretUnlock({ haptic: false });
-}
-
-const initialPoint = state.points[state.activeIndex];
-if (initialPoint) {
-  railViewport.scrollLeft = initialPoint.x - railViewport.clientWidth / 2;
-  updateProjectLabelPosition();
-}
-
-state.hasInitialized = true;
+window.setTimeout(() => updateActiveProject(0, true), 80);
